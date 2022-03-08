@@ -1,3 +1,4 @@
+-- Author: Pranjal Jain
 -- Database: plant_care
 
 -- DROP DATABASE IF EXISTS plant_care;
