@@ -14,7 +14,7 @@ export default class login extends Component {
         super(props)
 
         this.state = {
-            email: 'Megha',
+            email: '',
             password: ''
         };
         this.clickSubmit = this.clickSubmit.bind(this);
@@ -78,9 +78,7 @@ export default class login extends Component {
         return (
             <Fragment>
                 <Toast ref={(el) => this.toast = el} />
-                <div id='image_container'>
-                    <title>Plant care </title>
-                </div>
+                <div id='image_container'></div>
                 <div id="login_container">
                     <div className="container_welcome">
                         <p id="welcome">Welcome to</p><p id="welcome2"> PlantCare! </p>
@@ -94,7 +92,7 @@ export default class login extends Component {
                         <p id='label_text'>Enter Your email address</p>
                             <InputText
                                 id="form_input"
-                                placeholder='Enter your email'
+                                placeholder='Enter your email address'
                                 value={this.state.email}
                                 onChange={(e) => this.setState({ email: e.target.value })}
                                 required
@@ -102,7 +100,7 @@ export default class login extends Component {
                         </span>    
                     </div>
                     <p id='label_text'>Enter Your Password</p>
-                    <Password value={this.state.password} placeholder ='Password' onChange={(e) => this.setState({ password: e.target.value })} toggleMask />
+                    <Password value={this.state.password} placeholder ='Enter your password' onChange={(e) => this.setState({ password: e.target.value })} toggleMask />
                     <span id="forgot_password">
                         <a href="/Forgot-Password"> Forgot Password </a>
                        

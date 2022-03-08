@@ -1,4 +1,10 @@
+#image_container{
+  background: no-repeat;
+  background-image: url(../../images/plant.png);
+  height: 50em;
+  width: 100%;
 
+}
 #login_container {
   position: absolute;
   width: 539px;
