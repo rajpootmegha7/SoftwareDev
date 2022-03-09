@@ -12,16 +12,7 @@ CREATE DATABASE plant_care
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1;
 
-—————————————————————————————————————
-
--- SCHEMA: plant_care
-
--- DROP SCHEMA IF EXISTS plant_care ;
-
-CREATE SCHEMA IF NOT EXISTS plant_care
-    AUTHORIZATION postgres;
-
-—————————————————————————————————————
+------------------------------------------
 
 -- Table: plant_care.user
 
@@ -30,11 +21,13 @@ CREATE SCHEMA IF NOT EXISTS plant_care
 CREATE TABLE IF NOT EXISTS plant_care."user"
 (
     user_id bigint NOT NULL DEFAULT nextval('plant_care.user_user_id_seq'::regclass),
-    name character varying(100) COLLATE pg_catalog."default",
+    first_name character varying(100) COLLATE pg_catalog."default",
     contact_number character varying(10) COLLATE pg_catalog."default",
-    password character varying(20) COLLATE pg_catalog."default",
+    password character varying(200) COLLATE pg_catalog."default",
     security_question character varying(200) COLLATE pg_catalog."default",
     security_answer character varying(200) COLLATE pg_catalog."default",
+    last_name character varying(100) COLLATE pg_catalog."default",
+    email character varying(200) COLLATE pg_catalog."default",
     CONSTRAINT user_pkey PRIMARY KEY (user_id)
 )
 
@@ -43,7 +36,7 @@ TABLESPACE pg_default;
 ALTER TABLE IF EXISTS plant_care."user"
     OWNER to postgres;
 
-—————————————————————————————————————
+------------------------------------------
 
 -- Table: plant_care.planner
 
@@ -65,7 +58,7 @@ TABLESPACE pg_default;
 ALTER TABLE IF EXISTS plant_care.planner
     OWNER to postgres;
 
-—————————————————————————————————————
+------------------------------------------
 
 
 -- Table: plant_care.calendar 
@@ -87,7 +80,7 @@ TABLESPACE pg_default;
 ALTER TABLE IF EXISTS plant_care."calendar "
     OWNER to postgres;
 
-—————————————————————————————————————
+------------------------------------------
 
 -- Table: plant_care.plant_type
 
@@ -105,7 +98,7 @@ TABLESPACE pg_default;
 ALTER TABLE IF EXISTS plant_care.plant_type
     OWNER to postgres;
 
-—————————————————————————————————————
+------------------------------------------
 
 -- Table: plant_care.season_type
 
@@ -123,7 +116,7 @@ TABLESPACE pg_default;
 ALTER TABLE IF EXISTS plant_care.season_type
     OWNER to postgres;
 
-—————————————————————————————————————
+------------------------------------------
 
 -- Table: plant_care.plant
 
@@ -155,7 +148,7 @@ TABLESPACE pg_default;
 ALTER TABLE IF EXISTS plant_care.plant
     OWNER to postgres;
 
-—————————————————————————————————————
+------------------------------------------
 
 -- Table: plant_care.location
 
@@ -176,7 +169,7 @@ TABLESPACE pg_default;
 ALTER TABLE IF EXISTS plant_care.location
     OWNER to postgres;
 
-—————————————————————————————————————
+------------------------------------------
 
 
 
