@@ -1,11 +1,13 @@
+//Author: Pranjal Jain
 const router = require("express").Router()
 const pool = require("../db");
 const bcrypt = require("bcrypt");
 const jwtGenerator = require("../utils/jwtGenerator");
+const validInfo = require("../middleware/validInfo");
+const authorization = require("../middleware/authorization");
 
-router.post("/register", async (req, res) => {
+router.post("/register", validInfo, async (req, res) => {
     try{
-        console.log("in register")
         const {first_name , last_name, email, contact_number, password, security_question, security_answer} = req.body;
         const user = await pool.query("SELECT * FROM plant_care.user where email = $1 ", [
             email
@@ -32,7 +34,7 @@ router.post("/register", async (req, res) => {
     };
 });
 
-router.post("/login", async (req,res) => {
+router.post("/login", validInfo, async (req,res) => {
     try{
         const{email, password} = req.body;
        
@@ -56,6 +58,15 @@ router.post("/login", async (req,res) => {
 
         res.json({token});
 
+    } catch(err){
+        console.error(err.message);
+        res.status(500).send("Server Error");
+    };
+});
+
+router.get("/is-verify", authorization, async(req, res) =>{
+    try{
+        res.json(true);
     } catch(err){
         console.error(err.message);
         res.status(500).send("Server Error");

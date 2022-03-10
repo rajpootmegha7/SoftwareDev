@@ -1,8 +1,11 @@
+//Author: Pranjal Jain
 require("dotenv").config();
 const express = require("express");
 const cors = require('cors');
-const login = require('./routes/login');
 const jwtAuth = require('./routes/jwtAuth');
+const planner = require('./routes/planner');
+const calendar = require('./routes/calendar');
+const search = require('./routes/search');
 
 const app = express();
 
@@ -11,7 +14,9 @@ app.use(cors());
 
 
 app.use('/auth', jwtAuth);
-app.use('/login', login);
+app.use('/planner', planner);
+app.use('/calendar', calendar);
+app.use('/search', search);
 
 
 const port = process.env.PORT
