@@ -37,6 +37,23 @@ CREATE SCHEMA IF NOT EXISTS plant_care
 
 ------------------------------------------
 
+-- SEQUENCE: plant_care.user_user_id_seq
+
+-- DROP SEQUENCE IF EXISTS plant_care.user_user_id_seq;
+
+CREATE SEQUENCE IF NOT EXISTS plant_care.user_user_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 9223372036854775807
+    CACHE 1
+    OWNED BY "user".user_id;
+
+ALTER SEQUENCE plant_care.user_user_id_seq
+    OWNER TO postgres;
+
+------------------------------------------
+
 -- Table: plant_care.user
 
 -- DROP TABLE IF EXISTS plant_care."user";
@@ -125,6 +142,23 @@ ALTER TABLE IF EXISTS plant_care.plant_type
 
 ------------------------------------------
 
+-- SEQUENCE: plant_care.season_type_id_season_type_id_seq
+
+-- DROP SEQUENCE IF EXISTS plant_care.season_type_id_season_type_id_seq;
+
+CREATE SEQUENCE IF NOT EXISTS plant_care.season_type_id_season_type_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 9223372036854775807
+    CACHE 1
+    OWNED BY season_type.season_type_id;
+
+ALTER SEQUENCE plant_care.season_type_id_season_type_id_seq
+    OWNER TO postgres;
+
+------------------------------------------
+
 -- Table: plant_care.season_type
 
 -- DROP TABLE IF EXISTS plant_care.season_type;
@@ -140,6 +174,23 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS plant_care.season_type
     OWNER to postgres;
+
+------------------------------------------
+
+-- SEQUENCE: plant_care.plant_plant_id_seq
+
+-- DROP SEQUENCE IF EXISTS plant_care.plant_plant_id_seq;
+
+CREATE SEQUENCE IF NOT EXISTS plant_care.plant_plant_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 9223372036854775807
+    CACHE 1
+    OWNED BY plant.plant_id;
+
+ALTER SEQUENCE plant_care.plant_plant_id_seq
+    OWNER TO postgres;
 
 ------------------------------------------
 
