@@ -1,6 +1,20 @@
 -- Author: Pranjal Jain
 -- Database: plant_care
 
+-- Role: plant_care
+-- DROP ROLE IF EXISTS plant_care;
+
+CREATE ROLE plant_care WITH
+  LOGIN
+  SUPERUSER
+  INHERIT
+  CREATEDB
+  CREATEROLE
+  NOREPLICATION
+  ENCRYPTED PASSWORD 'SCRAM-SHA-256$4096:dKiig9AzJoV3Y+Kj7jLakQ==$hW+VGxH3QzK3FR3gwzPdPZTusu7uEmDAQd04uOY8bic=:lkCotXiDPUbWdEEIY6pilU0fl8ROs/LXLF4oxleta7w=';
+
+------------------------------------------
+
 -- DROP DATABASE IF EXISTS plant_care;
 
 CREATE DATABASE plant_care
