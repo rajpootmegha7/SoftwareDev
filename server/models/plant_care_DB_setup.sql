@@ -14,6 +14,15 @@ CREATE DATABASE plant_care
 
 ------------------------------------------
 
+-- SCHEMA: plant_care
+
+-- DROP SCHEMA IF EXISTS plant_care ;
+
+CREATE SCHEMA IF NOT EXISTS plant_care
+    AUTHORIZATION postgres;
+
+------------------------------------------
+
 -- Table: plant_care.user
 
 -- DROP TABLE IF EXISTS plant_care."user";
