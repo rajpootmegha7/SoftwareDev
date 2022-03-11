@@ -6,6 +6,8 @@ import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
 import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
+import logo_reference from '../../images/plantcare.png'
+
 
 
 export default class login extends Component {
@@ -28,7 +30,7 @@ export default class login extends Component {
 
         var data = {
             email: this.state.email,
-            _password: this.state.password,
+            password: this.state.password,
         };
         console.log(data);
         this.verifyLogin(data);
@@ -43,7 +45,7 @@ export default class login extends Component {
 
     verifyLogin(data) {
         console.log('In Submit Login');
-        var request = new Request('http://localhost:4000/login/api/get_userid', {
+        var request = new Request('http://localhost:4000/auth/login', {
             method: 'POST',
             headers: new Headers({ 'Content-Type': 'application/json' }),
             body: JSON.stringify(data)
@@ -52,9 +54,8 @@ export default class login extends Component {
         var that = this;
         fetch(request)
             .then(function (response) {
-                if (response.status === 400) throw new Error('BAD Request');
-                else if (response.status === 405) throw new Error('User not Available in DB');
-                else if (response.status === 406) throw new Error('Incorrect Password');
+                if (response.status === 500) throw new Error('Internal server error');
+                else if (response.status === 401) throw new Error('Password or Email is incorrect');
                 
                 response.json().then(function (data) {
                     localStorage.setItem('email', that.state.email);
@@ -78,6 +79,7 @@ export default class login extends Component {
         return (
             <Fragment>
                 <Toast ref={(el) => this.toast = el} />
+                <div className='logo'><img src={logo_reference} alt="Plants" width="170px" height="60px" /></div>
                 <div id='image_container'></div>
                 <div id="login_container">
                     <div className="container_welcome">
