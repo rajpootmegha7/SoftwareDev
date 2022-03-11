@@ -45,7 +45,8 @@ ALTER TABLE IF EXISTS plant_care."user"
 CREATE TABLE IF NOT EXISTS plant_care.planner
 (
     user_id bigint NOT NULL,
-    planner_json character varying(2000) COLLATE pg_catalog."default",
+    planner_json character varying(10000) COLLATE pg_catalog."default",
+    CONSTRAINT planner_pkey PRIMARY KEY (user_id),
     CONSTRAINT "user" FOREIGN KEY (user_id)
         REFERENCES plant_care."user" (user_id) MATCH SIMPLE
         ON UPDATE NO ACTION
@@ -61,14 +62,15 @@ ALTER TABLE IF EXISTS plant_care.planner
 ------------------------------------------
 
 
--- Table: plant_care.calendar 
+-- Table: plant_care.calendar
 
--- DROP TABLE IF EXISTS plant_care."calendar ";
+-- DROP TABLE IF EXISTS plant_care.calendar;
 
-CREATE TABLE IF NOT EXISTS plant_care."calendar "
+CREATE TABLE IF NOT EXISTS plant_care.calendar
 (
     user_id bigint NOT NULL,
     calendar_json character varying(2000) COLLATE pg_catalog."default",
+    CONSTRAINT calendar_pkey PRIMARY KEY (user_id),
     CONSTRAINT "user" FOREIGN KEY (user_id)
         REFERENCES plant_care."user" (user_id) MATCH SIMPLE
         ON UPDATE NO ACTION
@@ -77,7 +79,7 @@ CREATE TABLE IF NOT EXISTS plant_care."calendar "
 
 TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS plant_care."calendar "
+ALTER TABLE IF EXISTS plant_care.calendar
     OWNER to postgres;
 
 ------------------------------------------
@@ -125,11 +127,12 @@ ALTER TABLE IF EXISTS plant_care.season_type
 CREATE TABLE IF NOT EXISTS plant_care.plant
 (
     plant_id bigint NOT NULL DEFAULT nextval('plant_care.plant_plant_id_seq'::regclass),
-    "Description " character varying(10000) COLLATE pg_catalog."default",
+    description character varying(10000) COLLATE pg_catalog."default",
     plant_type_id bigint,
     season_type_id integer,
     image bytea,
     water_schedule integer,
+    name character varying(200) COLLATE pg_catalog."default",
     CONSTRAINT plant_pkey PRIMARY KEY (plant_id),
     CONSTRAINT plant_type_id FOREIGN KEY (plant_type_id)
         REFERENCES plant_care.plant_type (plant_type_id) MATCH SIMPLE

@@ -1,3 +1,4 @@
+//Author: Pranjal Jain
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
