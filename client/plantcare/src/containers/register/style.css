@@ -1,0 +1,124 @@
+#image_container{
+    background: no-repeat;
+    background-image: url(../../images/plant.png);
+    height: 50em;
+    width: 55%;
+  }
+  .logo{
+    margin-block: 18px;
+    padding-block: 2px;
+  }
+  #register_container {
+    position: absolute;
+    width: 539px;
+    height: 741px;
+    left: 790px;
+    top: 104px;
+    padding: 20px;
+    border: 1px solid lightcyan;
+    border-radius: 15px;
+    box-shadow: 9px 9px 7px 1px rgb(144 238 144 / 40%);
+    }
+  
+    #sign_up {
+      font-family: 'Lobster', cursive;
+      font-weight: 500;
+      font-size: 55px;
+      line-height: 82px;
+      /* identical to box height */
+      /* color: #000000; */
+      margin: unset;
+      margin-bottom: 1em;
+    }
+    .container_welcome{
+        display: flex;
+    }
+    
+    #welcome {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 21px;
+      text-align: left;
+      line-height: 31px;  
+      color: #000000;
+    }
+    #welcome2 {
+      font-family: Poppins;
+      font-style: normal;
+      color: green;
+      font-size: 21px;
+      margin-left: 5px;
+      line-height: 31px;  
+    }
+  
+    #no_account{
+      margin-left: auto;
+      margin-top: 1.5em;
+      cursor: pointer;
+  
+    }
+  
+    .username_text{
+        padding-bottom: 2em;
+    }
+  
+    #forgot_password{
+      position: relative;
+      display: flex;
+      flex-flow: row-reverse;
+    }
+  
+  #button_submit{
+      /* background-color: #779341;
+      border-color:#779341 ; */
+      margin-top: 20px;
+      float:right;
+      width: 9em;
+      border-radius: 25px;
+  
+  }
+  #label_text{
+    font-family: 'Lobster', cursive;
+    color: darkslategrey;
+  }
+  #formname{
+    width: 100%;
+    display: inline-flex;
+  }
+  
+  
+  .p-inputtext{
+      width: 99%;
+      margin: 4px;
+  }
+  
+  .p-password{
+      width: 100%;
+  }
+  
+  .l-btn{
+      text-decoration: none;
+      color: grey;
+      font-size: 14px;
+      margin: 1.5px;
+      border-radius: 25px;
+      border: 1px solid;
+      padding: 1px 8px;
+  }
+  .l-btn:hover{
+    color: white;
+    background-color: grey;
+  }
+
+  .p-dropdown{
+    width: 493px;
+    margin: 4px;
+    height: 50.5px;
+
+  }
+
+  ::placeholder { /* Most modern browsers support this now. */
+    color: lightcoral;
+ }
+  
