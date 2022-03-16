@@ -1,0 +1,63 @@
+.image_container{
+    background: no-repeat;
+    /* background-image: url(../../images/plant.png); */
+   
+}
+.forgotpass_container {
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    height : 20em;
+    width: 25em;
+    outline: 2px solid #cecece;
+}
+.forgot {
+    text-align: center;
+    margin-top: 10px;
+    font-family: poppins;
+
+}
+.input_container {
+    margin: 20px auto;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+#Email {
+    padding: 15px 2%;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    margin: 0 auto;
+}
+#Email-help {
+    font-size: 12px;
+}
+.block {
+    font-size: 0.8rem;
+}
+.Email_button {
+    outline: 2px solid #cecece; 
+}
+.security_container {
+    margin: 20px auto;
+    /* outline: 2px solid #69bd95; */
+}
+.resetpass_container {
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    outline: 2px solid #cecece;
+    height: fit-content;
+    width: fit-content;
+}
+.resetpass {
+    text-align: center;
+    margin-top: 10px;
+}
