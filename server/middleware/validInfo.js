@@ -7,7 +7,6 @@ module.exports = (req, res, next) => {
     }
   
     if (req.path === "/register") {
-      console.log(!email.length);
       if (![first_name , last_name, email, contact_number, password, security_question, security_answer].every(Boolean)) {
         return res.status(401).json("Missing Fields");
       } else if (!validEmail(email)) {

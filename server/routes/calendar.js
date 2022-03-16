@@ -22,7 +22,6 @@ router.post("/", authorization, async(req, res) => {
     try {
         var {calendar_json} = req.body
         calendar_json = "'"+calendar_json+"'"
-        console.log(calendar_json)
 
         const newPlanner = await pool.query("INSERT INTO plant_care.calendar (user_id, calendar_json) VALUES($1, $2) ON CONFLICT (user_id) DO UPDATE SET calendar_json = $2", [req.user, calendar_json]);
         
