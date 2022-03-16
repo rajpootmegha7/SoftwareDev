@@ -6,6 +6,7 @@ const jwtAuth = require('./routes/jwtAuth');
 const planner = require('./routes/planner');
 const calendar = require('./routes/calendar');
 const search = require('./routes/search');
+const forgotPassword = require('./routes/forgotPassword');
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use('/auth', jwtAuth);
 app.use('/planner', planner);
 app.use('/calendar', calendar);
 app.use('/search', search);
+app.use('/forgotPassword', forgotPassword);
 
 
 

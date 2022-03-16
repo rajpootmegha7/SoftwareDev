@@ -16,5 +16,9 @@
     "express": "^4.17.3",
     "nodemon": "^2.0.15",
     "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.11.0",
+    "eslint-config-google": "^0.14.0"
   }
 }
