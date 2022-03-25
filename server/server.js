@@ -11,8 +11,10 @@ const forgotPassword = require('./routes/forgotPassword');
 const app = express();
 
 app.use(express.json());
-app.use(cors());
 
+app.use(cors({
+    origin: '*'
+}));
 
 app.use('/auth', jwtAuth);
 app.use('/planner', planner);
