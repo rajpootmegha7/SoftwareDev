@@ -3,7 +3,7 @@ const router = require("express").Router()
 const pool = require("../db");
 const bcrypt = require("bcrypt");
 
-router.get("/", async(req, res) => {
+router.post("/validate", async(req, res) => {
     try {
         
         var{email} = req.body
