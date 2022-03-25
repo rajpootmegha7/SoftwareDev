@@ -62,7 +62,7 @@ export default class login extends Component {
                     localStorage.setItem('isLogged', 'true');
 
                     that.showSuccess('Sucessfully Logged In.');
-                    that.props.history.push('/Dashboard');
+                    that.props.history.push('/Planner');
                    
                 });
             })
