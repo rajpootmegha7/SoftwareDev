@@ -1,34 +1,50 @@
 version: '3.7'
 
+x-common-variables: &common-variables
+  PSQL_DATABASE: plant_care
+  POSTGRES_USER: plant_care
+  POSTGRES_PASSWORD: 1234
+
 services:
   server:
     build:
       context: ./server
       dockerfile: Dockerfile
-    image: myapp-server
-    container_name: myapp-node-server
-    command: /usr/src/app/node_modules/.bin/nodemon server.js
+    image: plantcare-server
+    container_name: plantcare-node-server
+    command: /app/node_modules/.bin/nodemon server.js
     volumes:
-      - ./server/:/usr/src/app
-      - /usr/src/app/node_modules
+      - ./server/:/app
+      - app/node_modules
     ports:
       - "5000:5000"
     depends_on:
-      - mongo
+      - db
     env_file: ./server/.env
     environment:
       - NODE_ENV=development
+    networks:
+      - app-network
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    volumes: 
+      - "./plant_care_DB_setup.sql:/docker-entrypoint-initdb.d/plant_care_DB_setup.sql"
+    ports:
+      - "27017:27017"
+    environment:
+      <<: *common-variables
     networks:
       - app-network
   client:
     build:
       context: ./client/plantcare
       dockerfile: Dockerfile
-    image: myapp-client
-    container_name: myapp-react-client
+    image: plantcare-client
+    container_name: plantcare-react-client
     command: npm start
     volumes:
-      - ./client/plantcare:/usr/app
+      - ./client/:/usr/app
       - /usr/app/node_modules
     depends_on:
       - server
@@ -42,7 +58,6 @@ networks:
         driver: bridge
 
 volumes:
-    data-volume:
     node_modules:
     web-root:
       driver: local

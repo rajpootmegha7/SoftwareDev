@@ -1,16 +1,16 @@
 # Dockerfile for Node Express Backend
 
-FROM node:latest
+FROM node:alpine
 
 # Working directory for backend
-WORKDIR /usr/SoftwareDev/server
+WORKDIR /app
 
-COPY package-lock.json /usr/SoftwareDev/server
-COPY package.json /usr/SoftwareDev/server
+COPY package-lock.json ./
+COPY package.json ./
 
 ###  Installing dependencies
 
-RUN npm install -g npm@latest
+RUN npm install
 
 # copy local files to app folder
 COPY . .

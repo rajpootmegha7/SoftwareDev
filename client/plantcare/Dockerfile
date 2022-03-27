@@ -2,17 +2,16 @@
 # Dockerfile for React client
 
 # Build react client
-FROM node:latest
+FROM node:alpine
 
 # Working directory be app
-WORKDIR /usr/SoftwareDev/client/plantcare
+WORKDIR /app
 
-COPY package-lock.json /usr/SoftwareDev/client/plantcare
-COPY package.json /usr/SoftwareDev/client/plantcare
+COPY package-lock.json ./
+COPY package.json ./
 
 ###  Installing dependencies
 
-RUN npm install -g npm@latest
 RUN npm install
 
 # copy local files to app folder
