@@ -21,7 +21,7 @@ router.post("/validate", async(req, res) => {
 });
 
 
-router.post("/", async(req,res) => {
+router.post("/resetpass", async(req,res) => {
 
     try{
         const{email, password, security_answer} = req.body;
@@ -37,7 +37,7 @@ router.post("/", async(req,res) => {
         const bcryptPassword = await bcrypt.hash(password, salt);
 
         const update = await pool.query("UPDATE plant_care.user SET password=$1 WHERE email = $2", [bcryptPassword, email]);
-        res.send("Password updated successfully")
+        res.status(200).json("Password updated successfully");
         
     } catch (err) {
         console.error(err.message);
