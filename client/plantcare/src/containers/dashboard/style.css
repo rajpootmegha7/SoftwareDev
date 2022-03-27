@@ -1,4 +1,29 @@
-.message{
-    text-align: center;
-    font-size: xx-large;
+.dashboard_top_container{
+    /* background-image: url(../../images/search2.jpeg); */
+    position: relative;
+    height: 25em;
+    /* background-color: aqua; */
+}
+.search_text{
+    color: white;
+    font-size: xxx-large;
+    
+}
+.search_container{
+    align-items: center;
+    position: relative;
+    margin-left: 20em;
+    width: 50%;
+    height: 25em;
+    padding-top: 6%;
+
+}
+.dropdown_cont{
+    display: flex;
+    position: relative;
+    padding-top: 2em;
+}
+.search_result_container{
+    height: 30em;
+    background-color: azure;
 }
