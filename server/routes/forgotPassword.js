@@ -21,7 +21,7 @@ router.post("/validate", async(req, res) => {
 });
 
 
-router.post("/", async(req,res) => {
+router.post("/resetpass", async(req,res) => {
 
     try{
         const{email, password, security_answer} = req.body;
