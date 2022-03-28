@@ -113,6 +113,7 @@ export default class register extends Component {
 
                 response.json().then(function (data) {
                     that.showSuccess('Successfully registered');
+                    console.log("success")
                     that.props.history.push("/Login");
                 });
             })
