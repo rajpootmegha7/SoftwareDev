@@ -6,7 +6,7 @@ import { Parallax } from 'react-parallax';
 import './style.css'
 import image_p2 from '../../images/search2.jpeg'
 
-export default class dashboard extends Component {
+export default class Search extends Component {
 constructor(props) {
     super(props)
 
