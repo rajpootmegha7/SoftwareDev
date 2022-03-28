@@ -3,7 +3,7 @@
 FROM node:alpine
 
 # Working directory for backend
-WORKDIR /app
+WORKDIR /app2
 
 COPY package-lock.json ./
 COPY package.json ./
@@ -11,10 +11,12 @@ COPY package.json ./
 ###  Installing dependencies
 
 RUN npm install
+RUN npm install bcrypt
+RUN npm install jsonwebtoken
 
 # copy local files to app folder
 COPY . .
 
-EXPOSE 5000
+EXPOSE 4000
 
 CMD [ "npm", "start" ]

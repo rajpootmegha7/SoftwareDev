@@ -13,7 +13,7 @@ services:
       <<: *common-variables
     volumes: 
       - db:/var/lib/postgresql/data
-      - "./server/models/plant_care_DB_setup.sql:/docker-entrypoint-initdb.d/create_tables.sql"
+      - "./server/models/plant_care_DB_setup.sql:/docker-entrypoint-initdb.d/plant_care_DB_setup.sql.sql"
     ports:
       - "5432:5432"
     networks:
@@ -24,18 +24,15 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile
+    command: npm start
     image: plantcare-server
     depends_on:
       - db
-    command: npm start
     volumes:
-      - ./server/:/app
-      - app/node_modules
+      - ./server/:/usr/app
+      - /app/node_modules
     ports:
       - "4000:4000"
-    env_file: ./server/.env
-    environment:
-      - NODE_ENV=development
     networks:
       - app-network
   
@@ -48,7 +45,7 @@ services:
     command: npm start
     volumes:
       - ./client/:/usr/app
-      - /usr/app/node_modules
+      - /app/node_modules
     depends_on:
       - server
     ports:

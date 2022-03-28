@@ -5,7 +5,7 @@
 FROM node:alpine
 
 # Working directory be app
-WORKDIR /app
+WORKDIR /app2
 
 COPY package-lock.json ./
 COPY package.json ./
