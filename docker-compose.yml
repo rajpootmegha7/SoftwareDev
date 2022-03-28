@@ -6,36 +6,39 @@ x-common-variables: &common-variables
   POSTGRES_PASSWORD: 1234
 
 services:
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      <<: *common-variables
+    volumes: 
+      - db:/var/lib/postgresql/data
+      - "./server/models/plant_care_DB_setup.sql:/docker-entrypoint-initdb.d/create_tables.sql"
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+
   server:
+    container_name: plantcare-node-server
     build:
       context: ./server
       dockerfile: Dockerfile
     image: plantcare-server
-    container_name: plantcare-node-server
-    command: /app/node_modules/.bin/nodemon server.js
+    depends_on:
+      - db
+    command: npm start
     volumes:
       - ./server/:/app
       - app/node_modules
     ports:
-      - "5000:5000"
-    depends_on:
-      - db
+      - "4000:4000"
     env_file: ./server/.env
     environment:
       - NODE_ENV=development
     networks:
       - app-network
-  db:
-    image: postgres:14.1-alpine
-    restart: always
-    volumes: 
-      - "./plant_care_DB_setup.sql:/docker-entrypoint-initdb.d/plant_care_DB_setup.sql"
-    ports:
-      - "27017:27017"
-    environment:
-      <<: *common-variables
-    networks:
-      - app-network
+  
   client:
     build:
       context: ./client/plantcare
@@ -60,4 +63,6 @@ networks:
 volumes:
     node_modules:
     web-root:
+      driver: local
+    db:
       driver: local
