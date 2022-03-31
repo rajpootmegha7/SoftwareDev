@@ -1,19 +1,16 @@
 version: '3.7'
 
-x-common-variables: &common-variables
-  PSQL_DATABASE: plant_care
-  POSTGRES_USER: plant_care
-  POSTGRES_PASSWORD: 1234
-
 services:
   db:
     image: postgres:14.1-alpine
     restart: always
     environment:
-      <<: *common-variables
+      POSTGRES_DATABASE: plant_care
+      POSTGRES_USER: plant_care
+      POSTGRES_PASSWORD: 1234
+
     volumes: 
-      - db:/var/lib/postgresql/data
-      - "./server/models/plant_care_DB_setup.sql:/docker-entrypoint-initdb.d/plant_care_DB_setup.sql.sql"
+      - "./server/models/plant_care_DB_setup.sql:/docker-entrypoint-initdb.d/plant_care_DB_setup.sql"
     ports:
       - "5432:5432"
     networks:
@@ -21,6 +18,12 @@ services:
 
   server:
     container_name: plantcare-node-server
+    environment:
+      POSTGRES_DATABASE: plant_care
+      POSTGRES_USER: plant_care
+      POSTGRES_PASSWORD: 1234
+      PGHOST: db
+
     build:
       context: ./server
       dockerfile: Dockerfile
@@ -60,6 +63,4 @@ networks:
 volumes:
     node_modules:
     web-root:
-      driver: local
-    db:
       driver: local

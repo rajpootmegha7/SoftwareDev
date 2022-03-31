@@ -3,7 +3,7 @@
 FROM node:alpine
 
 # Working directory for backend
-WORKDIR /app2
+WORKDIR /app
 
 COPY package-lock.json ./
 COPY package.json ./
