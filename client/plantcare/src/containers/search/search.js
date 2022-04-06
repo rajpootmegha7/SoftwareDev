@@ -11,7 +11,7 @@ import { Dropdown } from 'primereact/dropdown';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 
-export default class dashboard extends Component {
+export default class Search extends Component {
 constructor(props) {
     super(props)
 
