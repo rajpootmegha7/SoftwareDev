@@ -8,7 +8,7 @@ import forgotpassword from './containers/forgotpassword/forgotpassword'
 import About from './containers/about/about'
 import Planner from './containers/planner/planner'
 import Navigation from './components/navbar/navbar'
-import dashboard from './containers/dashboard/dashboard'
+import Search from './containers/search/search'
 
 
 
@@ -19,7 +19,7 @@ function App() {
         <div className="App">
           <Switch>
             <Route exact path="/">
-              <Redirect to="/Dashboard" />
+              <Redirect to="/search" />
             </Route>
             <Route path="/Login" exact component={login} />
             <Route path="/Register" exact component={register} />
@@ -28,7 +28,7 @@ function App() {
               <Navigation />
               <Route path="/About" component={About} />
               <Route path="/Planner" component={Planner} />
-              <Route path="/Dashboard" component={dashboard} />
+              <Route path="/search" component={Search} />
             </div>
           </Switch>
         </div>

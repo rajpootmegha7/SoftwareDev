@@ -149,7 +149,6 @@ rowPlantDescription=(rowData)=>{
         return (
             <div>
                 <div className='dashboard_container'>
-                    <h1>Header</h1>
                     <div className='dashboard_top_container'>
                     <div className='search_container'>
                         <div className="col-12 md:col-4">
