@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: 1234
 
     volumes: 
-      - "./server/models/plant_care_DB_setup.sql:/docker-entrypoint-initdb.d/plant_care_DB_setup.sql"
+      - ./server/models/docker_db.sql:/docker-entrypoint-initdb.d/docker_db.sql
     ports:
       - "5432:5432"
     networks:
@@ -22,7 +22,7 @@ services:
       POSTGRES_DATABASE: plant_care
       POSTGRES_USER: plant_care
       POSTGRES_PASSWORD: 1234
-      PGHOST: db
+      POSTGRES_HOST: db
 
     build:
       context: ./server
