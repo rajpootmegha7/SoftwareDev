@@ -12,13 +12,12 @@
   left: 790px;
   top: 104px;
   padding: 20px;
-  border: 1px solid lightcyan;
+  border: 0.01px solid grey;
   border-radius: 15px;
-  box-shadow: 9px 9px 7px 1px rgb(144 238 144 / 40%);
   }
 
   #sign_in {
-    font-family: 'Lobster', cursive;
+    font-family: 'Poppins', bold;
     font-weight: 500;
     font-size: 55px;
     line-height: 82px;
@@ -32,7 +31,7 @@
   }
   
   #welcome {
-    font-family: Poppins;
+    font-family: 'Poppins';
     font-style: normal;
     font-weight: normal;
     font-size: 21px;
@@ -41,9 +40,9 @@
     color: #000000;
   }
   #welcome2 {
-    font-family: Poppins;
+    font-family: 'Poppins';
     font-style: normal;
-    color: green;
+    color: #537E00;
     font-size: 21px;
     margin-left: 5px;
     line-height: 31px;  
@@ -75,11 +74,6 @@
     border-radius: 25px;
 
 }
-#label_text{
-  font-family: 'Lobster', cursive;
-  color: darkslategrey;
-}
-
 
 .p-inputtext{
     width: 99%;

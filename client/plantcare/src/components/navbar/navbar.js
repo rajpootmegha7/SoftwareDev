@@ -2,37 +2,34 @@ import "./style.css"
 
 import React, { Component, Fragment } from 'react'
 import {  Link } from "react-router-dom";
-import Navbar from 'react-bootstrap/Navbar'
-import Container from 'react-bootstrap/Container'
-import Nav from 'react-bootstrap/Nav'
 import logo from '../../images/plantcare.png'
-
-
-
+import { Menubar } from 'primereact/menubar'
+import { Button } from 'primereact/button'
+ 
 const Navigation = () => {
-  return (
-    <Navbar bg="light" expand="lg">
-    <Container>
-    <Navbar.Brand href="#home">
-      <img
-        src={logo}
-        width="200"
-        height="60"
-        className="d-inline-block align-top"
-      />
-    </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="me-auto">
-          <Nav.Link href="/About">About</Nav.Link>
-          <Nav.Link href="/Search">Search</Nav.Link>
-          <Nav.Link href="/Planner">Planner</Nav.Link>
-          <Nav.Link href="/Login">Log In</Nav.Link>
-          <Nav.Link href="/register">Sign Up</Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
-    </Container>
-  </Navbar>
-  );
+   const navlist = [
+      {label: 'About', command: () => {
+          window.location.href='./about'
+      }}, 
+      {label: 'Search', command: () => {
+         window.location.href='./search'
+      }}, 
+     {label: 'Planner', command: () => {
+      window.location.href='./planner'
+      }}
+   ];
+   const start = <img alt="logo" src={logo} width="200"
+   height="60"></img>;
+   return(
+       <div>
+          <header>
+             <nav>
+                <Menubar model={navlist} start={start}/>
+             </nav>
+          </header>
+       </div>
+   )
 }
+
 export default Navigation;
+
