@@ -8,7 +8,9 @@ router.get("/", authorization, async(req, res) => {
         
 
         const planner = await pool.query("SELECT planner_json FROM plant_care.planner where user_id = $1", [req.user]);
-        
+        if (planner.rowCount === 0) {
+            res.json({})
+        }
         res.json(planner.rows[0]);
 
     } catch (err) {
