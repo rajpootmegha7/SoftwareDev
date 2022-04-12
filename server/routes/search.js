@@ -2,7 +2,7 @@
 const router = require("express").Router();
 const pool = require("../db");
 
-router.get("/", async(req, res) => {
+router.post("/", async(req, res) => {
     try {
         
         var{name , type, season, location} = req.body
