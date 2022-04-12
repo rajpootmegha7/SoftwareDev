@@ -41,6 +41,7 @@ export default function Login() {
     return(
         <Fragment>
             <div className='logo'><img src={logo_reference} alt="Plants" width="200" height="60" /></div>
+                <div id='image_container'></div>
                 <div id="login_container">
                     <div className="container_welcome">
                         <p id="welcome">Welcome to</p><p id="welcome2"> PlantCare </p>

@@ -30,8 +30,8 @@ function App() {
             <div>
               <Navigation />
               <Route path="/About" component={About} />
-              <Route path="/Planner" component={Planner} />
-              <Route path="/Search" component={Search} />
+              <ProtectedRoute path="/Planner" component={Planner} />
+              <ProtectedRoute path="/Search" component={Search} /> 
             </div>
           </Switch>
         </div>
