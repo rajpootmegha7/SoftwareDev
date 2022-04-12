@@ -21,7 +21,7 @@
     }
   
     #sign_up {
-      font-family: 'Poppins';
+      font-family: 'Lobster', cursive;
       font-weight: 500;
       font-size: 55px;
       line-height: 82px;
@@ -35,7 +35,7 @@
     }
     
     #welcome {
-      font-family: Poppins;
+      font-family: "Poppins";
       font-style: normal;
       font-weight: normal;
       font-size: 21px;
@@ -79,7 +79,7 @@
   
   }
   #label_text{
-    font-family: 'Poppins';
+    font-family: 'Lobster', cursive;
     color: darkslategrey;
   }
   #formname{
