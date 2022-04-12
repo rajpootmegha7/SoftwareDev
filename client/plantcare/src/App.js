@@ -13,13 +13,17 @@ import ProtectedRoute from './components/protectedRoute/protectedRoute'
 import Search from './containers/search/search'
 
 
+
 function App() {
 
   return (
     <div className="App">
       <BrowserRouter>
-      <div className="App">
-        <Switch>
+        <div className="App">
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/Search" />
+            </Route>
             <Route path="/Login" exact component={Login} />
             <Route path="/Register" exact component={Register} />
             <Route path="/Forgot-Password" exact component={forgotpassword} />
@@ -28,9 +32,9 @@ function App() {
               <Route path="/About" component={About} />
               <ProtectedRoute path="/Planner" component={Planner} />
               <ProtectedRoute path="/Search" component={Search} /> 
-            </div> 
-        </Switch>
-      </div>
+            </div>
+          </Switch>
+        </div>
       </BrowserRouter>
     </div>
   );

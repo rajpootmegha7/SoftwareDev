@@ -1,8 +1,0 @@
-.image_card{
-    display: inline-block;
-    height: auto;
-    margin: 5px 10px;
-}
-.image_card>img{    height: 20px;
-    width: 18px;
-}

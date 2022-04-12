@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS plant_care.plant
     description character varying(10000) COLLATE pg_catalog."default",
     plant_type_id bigint,
     season_type_id integer,
-    image character varying(10000),
+    image VARCHAR(100000),
     water_schedule integer,
     name character varying(200) COLLATE pg_catalog."default",
     CONSTRAINT plant_pkey PRIMARY KEY (plant_id),

@@ -1,7 +1,7 @@
 .dashboard_top_container{
     /* background-image: url(../../images/search2.jpeg); */
     position: relative;
-    height: 15em;
+    height: 20em;
     background-color: #537E00;
 }
 
@@ -86,5 +86,32 @@
 .p-datatable .p-datatable-tbody > tr > td {
     text-align: justify;
 }
+.planner_btn_card {
+    width: 100%;
+    height: 4em;
+    
+}
+.planner_btn{
+    float: right;
+    border: 1px solid #537E00;
+    margin-right: 6em;
+    background-color: #537E00;
+}
 
-
+.planner_btn >a{
+    text-decoration: none;
+    color: white;
+}
+#button_default{
+    background-color: #F59E0B;
+    color: white;
+}
+.image_card{
+    display: inline-block;
+    height: auto;
+    margin: 5px 10px;
+}
+.image_card>img{   
+    height: 20px;
+    width: 18px;
+}
