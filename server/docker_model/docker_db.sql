@@ -1,30 +1,32 @@
 -- Author: Pranjal Jain
 
 -- Role: plant_care
+
+-- DROP OWNED BY plant_care;
 -- DROP ROLE IF EXISTS plant_care;
 
-CREATE ROLE plant_care WITH
-  LOGIN
-  SUPERUSER
-  INHERIT
-  CREATEDB
-  CREATEROLE
-  NOREPLICATION
-  ENCRYPTED PASSWORD 'SCRAM-SHA-256$4096:dKiig9AzJoV3Y+Kj7jLakQ==$hW+VGxH3QzK3FR3gwzPdPZTusu7uEmDAQd04uOY8bic=:lkCotXiDPUbWdEEIY6pilU0fl8ROs/LXLF4oxleta7w=';
+-- CREATE ROLE plant_care WITH
+--   LOGIN
+--   SUPERUSER
+--   INHERIT
+--   CREATEDB
+--   CREATEROLE
+--   NOREPLICATION
+--   ENCRYPTED PASSWORD 'SCRAM-SHA-256$4096:dKiig9AzJoV3Y+Kj7jLakQ==$hW+VGxH3QzK3FR3gwzPdPZTusu7uEmDAQd04uOY8bic=:lkCotXiDPUbWdEEIY6pilU0fl8ROs/LXLF4oxleta7w=';
 
 ------------------------------------------
-set role plant_care;
+-- set role plant_care;
 -- Database: plant_care
 --DROP DATABASE IF EXISTS plant_care;
 
-CREATE DATABASE plant_care
-    WITH 
-    OWNER = plant_care
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'C'
-    LC_CTYPE = 'C'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1;
+-- CREATE DATABASE plant_care
+--     WITH 
+--     OWNER = plant_care
+--     ENCODING = 'UTF8'
+--     LC_COLLATE = 'C'
+--     LC_CTYPE = 'C'
+--     TABLESPACE = pg_default
+--     CONNECTION LIMIT = -1;
 
 ------------------------------------------
 
