@@ -6,6 +6,7 @@ router.post("/", async(req, res) => {
     try {
         
         var{name , type, season, location} = req.body
+        console.log(name , type, season, location);
         name = '%'+name+'%'
         type = '%'+type+'%'
         season = '%'+season+'%'
