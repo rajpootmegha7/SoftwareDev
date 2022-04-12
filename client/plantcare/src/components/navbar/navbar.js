@@ -28,7 +28,6 @@ const Navigation = () => {
           <header>
              <nav>
                 <Menubar model={navlist} start={start} end={localStorage.getItem('firstname')}/>
-                
              </nav>
           </header>
        </div>

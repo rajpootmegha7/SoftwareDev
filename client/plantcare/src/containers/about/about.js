@@ -4,6 +4,8 @@ import carlos from '../../images/carlos.jpeg'
 import elo from '../../images/elo.png'
 import pranjal from '../../images/Summer.png'
 import megha from '../../images/Megha.jpg'
+import Footer from '../Footer/Footer'
+
 
 export default class about extends Component {
     render() {
@@ -42,6 +44,7 @@ export default class about extends Component {
                     </div>
 
                 </div>
+                <Footer/>
             </div>
 
         )
