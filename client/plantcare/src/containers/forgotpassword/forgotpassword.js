@@ -148,7 +148,7 @@ export default class forgotpassword extends Component {
                     
                         { this.state.showEmailButton ? 
                         <div>
-                            <Button onClick={this.clickSubmitEmail}>
+                            <Button className='Fogot_btn' onClick={this.clickSubmitEmail}>
                                 Submit
                             </Button >
                         </div> : null}
@@ -182,7 +182,7 @@ export default class forgotpassword extends Component {
                             onChange={(e) => this.setState({ pass2: e.target.value })} toggleMask
                             required
                         />
-                        <Button onClick={this.clickSubmitPass}>
+                        <Button className='Fogot_btn' onClick={this.clickSubmitPass}>
                             Submit
                         </Button >
                     </div>
