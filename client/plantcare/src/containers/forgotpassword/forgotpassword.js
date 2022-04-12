@@ -147,7 +147,7 @@ export default class forgotpassword extends Component {
                                     required/>
                     
                         { this.state.showEmailButton ? 
-                        <div>
+                        <div className='forgot_button_card'>
                             <Button className='Fogot_btn' onClick={this.clickSubmitEmail}>
                                 Submit
                             </Button >

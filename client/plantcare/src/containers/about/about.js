@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './style.css'
 import carlos from '../../images/carlos.jpeg'
 import elo from '../../images/elo.png'
-import pranjal from '../../images/Summer.png'
+import pranjal from '../../images/Pranjal.jpeg'
 import megha from '../../images/Megha.jpg'
 import Footer from '../Footer/Footer'
 
