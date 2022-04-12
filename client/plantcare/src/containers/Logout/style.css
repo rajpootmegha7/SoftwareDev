@@ -1,0 +1,10 @@
+.logoff_container > .btn-container {
+  width: 10%;
+  margin-left: 45%;
+ 
+}
+.logoff_container > p {
+  color: darkslategrey;
+  text-align: center;
+  font-size: 1.5em;
+}

@@ -11,6 +11,7 @@ import Navigation from './components/navbar/navbar'
 import useToken from './components/useToken/useToken';
 import ProtectedRoute from './components/protectedRoute/protectedRoute'
 import Search from './containers/search/search'
+import Logout from './containers/Logout/Logout'
 
 
 
@@ -32,6 +33,7 @@ function App() {
               <Route path="/About" component={About} />
               <ProtectedRoute path="/Planner" component={Planner} />
               <ProtectedRoute path="/Search" component={Search} /> 
+              <Route path='/Logout' exact component={Logout} />
             </div>
           </Switch>
         </div>
