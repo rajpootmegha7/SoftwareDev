@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './style.css'
 import { Link} from "react-router-dom";
-import Watercard from '../../components/watercard/Watercard';
 import plant_herb from '../../images/herb.png'
 import plant_bush from '../../images/bush.png'
 import plant_tree from '../../images/tree.png'
@@ -34,14 +33,14 @@ constructor(props) {
         rows: 5,
     }
     this._plantdata = [
-        {code:1, desc: "With its stately upright foliage that almost looks artificial, the snake plant (also called mother-in-law’s tongue) adds great architectural form to a room and complements all styles of decor.", 
-        name: 'Snake Plant', image:'https://www.almanac.com/sites/default/files/users/The%20Editors/snake_plant_sansevieria_trifasciata_laurentii_mokkie-wc_full_width.jpg',plant_size: 2, water_schedule:3, plant_type: 1},
-        {code:2, desc: "Whether you choose upright or trailing/climbing types, philodendrons are one of the easiest houseplants you can possibly grow. You can train them up a trellis or simply leave them to their own devices; philodendrons will survive no matter what.",
-         name: 'Philodendron', image:'https://cdn.shopify.com/s/files/1/0812/7647/products/Screenshot2020-04-2717.05.28.png?v=1625306899',plant_size: 3, water_schedule:2, plant_type: 2},
+        {code:1, desc: "Native to the rainforests in Brazil, the Christmas cactus is a popular, low maintenance houseplant and a favorite pass-along plant that can live for years. Although the Christmas cactus is a true cactus, it is of the tropical variety and is used to growing as an epiphyte off tree branches in areas of heavy moisture and high humidity. With a few tricks, you can easily get this tropical plant to blossom year after year indoors.", 
+        name: 'Christmas Cactus', image:'https://www.gardeningknowhow.com/wp-content/uploads/2021/11/christmas-cactus-1.jpg',plant_size: 2, water_schedule:3, plant_type: 1},
+        {code:2, desc: "Winter aconite grows and blooms best in a spot that receives full sun (at least 6 or so hours of direct light per day in early spring). Because its growth starts so early in the season, this spring-blooming bulb can be planted beneath deciduous trees such as maples and oaks. By the time the trees leaf out, winter aconite has already put on its show and is getting ready to rest. Once the plant goes dormant in early spring, its foliage disappears until the following year.",
+         name: 'Winter Aconite', image:'https://h2.commercev3.net/www.dutchgardens.com/images/400/85234.jpg',plant_size: 2, water_schedule:1, plant_type: 2},
     ];
     this.plantTypeOptions = [
         {name:'Herb', id:'pl-12', image:plant_herb},
-        {name:'Shrub', id:'pl-13', image:plant_bush},
+        {name:'Shrub', id:'pl-13', image:plant_bush},   
         {name:'Tree', id:'pl-14', image:plant_tree},
     ];
     this.season=[
