@@ -8,7 +8,7 @@
     padding: 15px 20%;
     margin: 0 auto;
     font-size: 1.1rem;
-    color: red;
+    color: white;
     background-color: #75a33b;
     border-radius: 6px;
     box-shadow: 0 5px 10px 0 #4a6328;
@@ -22,10 +22,6 @@
 }
 .btn.pressed {
     transform: none;
-
-    /*-webkit-box-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px, 50px 50px 50px 50px rgba(117,163,59,0); 
-    box-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px, 50px 50px 50px 50px rgba(117,163,59,0);
-    */
     box-shadow: 0 5px 10px 0 #4a6328;
 }
 

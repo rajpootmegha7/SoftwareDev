@@ -7,6 +7,7 @@ import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
 import { Dropdown } from 'primereact/dropdown';
 import logo_reference from '../../images/plantcare.png'
+import Footer from '../Footer/Footer';
 
 
 
@@ -204,6 +205,7 @@ export default class register extends Component {
 
                         <Button id="button_submit" label="Submit" className="p-button-outlined p-button-success" onClick={this.onclickSubmit} />
                     </div>
+                    <Footer/>
                 </Fragment>
 
 
