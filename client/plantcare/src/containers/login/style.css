@@ -84,7 +84,7 @@
     width: 100%;
 }
 
-a{
+#forgot_password > a{
     text-decoration: none;
     color: grey;
     font-size: 14px;
@@ -93,7 +93,7 @@ a{
     border: 1px solid;
     padding: 1px 8px;
 }
-a:hover{
+#forgot_password > a:hover{
   color: white;
   background-color: grey;
 }
