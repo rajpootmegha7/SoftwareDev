@@ -16,6 +16,7 @@ import { InputText } from 'primereact/inputtext';
 import { Dropdown } from 'primereact/dropdown';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import Footer from '../Footer/Footer';
 
 export default class Search extends Component {
 constructor(props) {
@@ -338,7 +339,9 @@ onClickDefault = (e)=>{
                         </div>
 
                     </div>
+                    <Footer/>
                 </div>
+                
             </div>
         )
     }

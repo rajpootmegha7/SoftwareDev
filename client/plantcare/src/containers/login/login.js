@@ -7,6 +7,7 @@ import { Password } from 'primereact/password';
 import { Button } from 'primereact/button';
 import logo_reference from '../../images/plantcare.png'
 import { useHistory } from "react-router-dom";
+import Footer from '../Footer/Footer';
 
 
 export default function Login() {
@@ -46,7 +47,7 @@ export default function Login() {
                     <div className="container_welcome">
                         <p id="welcome">Welcome to</p><p id="welcome2"> PlantCare </p>
                         <span id="no_account">
-                            <a href="register">No account? Sign up </a>
+                            <a className='l-btn' href="register">No account? Sign up </a>
                         </span>
                     </div>
                     <h1 id="sign_in">Sign in </h1>
@@ -64,12 +65,13 @@ export default function Login() {
                     <p id='label_text'>Enter your Password</p>
                     <Password placeholder ='Enter your password' onChange={e => setPassword(e.target.value)} toggleMask />
                     <span id="forgot_password">
-                        <a href="/Forgot-Password"> Forgot Password </a>
+                        <a  className='l-btn' href="/Forgot-Password"> Forgot Password </a>
                     </span>
                     {errorMsg.length > 0 ? (<p>{errorMsg}</p>): null}
 
                     <Button id="button_submit" label="Submit" className="p-button-outlined p-button-success" onClick={() => loginUser({email: email, password: password})} />
                 </div>
+                <Footer/>
             </Fragment>
     )
   }

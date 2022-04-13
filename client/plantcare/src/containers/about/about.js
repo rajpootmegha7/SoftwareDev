@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import './style.css'
-// import carlos from '../../images/Summer.png'
-// import elo from '../../images/elo.png'
-// import pranjal from '../../images/Summer.png'
-// import megha from '../../images/Megha.jpg'
+import carlos from '../../images/carlos.jpeg'
+import elo from '../../images/elo.png'
+import pranjal from '../../images/Pranjal.jpeg'
+import megha from '../../images/Megha.jpg'
+import Footer from '../Footer/Footer'
+
 
 export default class about extends Component {
     render() {
@@ -29,24 +31,20 @@ export default class about extends Component {
                     <div className='Team_details'>
                         <p id='Font_1'> The Team</p>
                         <div className='Pic_cont'>
-                        <div><img className='team' src="" alt="Avatar"></img><p>MSIT</p></div> 
-                        <div><img className='team' src="/images/elo.png" alt="Avatar"></img><p>MSIT</p></div> 
-                        <div><img className='team' src="../../images/elo.png" alt="Avatar"></img><p>MSIT</p></div> 
-                        <div><img className='team' src="../../images/elo.png" alt="Avatar"></img><p>MSIT</p></div> 
-
-
+                        <div><img className='team' src={megha} alt="Avatar"></img><p id='Font_1'>Megha Singh</p><p id='Type2'>Full-Stack Developer</p>
+                        <p id='Type2'>MS ITWS 22'</p></div> 
+                        <div><img className='team' src={elo} alt="Avatar"></img><p id='Font_1'>Elo Ekor</p><p id='Type2'>Back-End Developer</p>
+                        <p id='Type2'>MS ITEC 22'</p></div> 
+                        <div><img className='team'src={pranjal} alt="Avatar"></img><p id='Font_1'>Pranjal Jain</p><p id='Type2'>Back-End Developer</p>
+                        <p id='Type2'>MS ITWS 23'</p></div> 
+                        <div><img className='team' src={carlos} alt="Avatar"></img><p id='Font_1'>Carlos Power</p><p id='Type2'>Full-Stack Developer</p>
+                        <p id='Type2'>MS ITEC 22'</p></div> 
                         </div>
-
-
-
 
                     </div>
 
                 </div>
-
-
-
-
+                <Footer/>
             </div>
 
         )

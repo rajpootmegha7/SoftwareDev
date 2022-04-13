@@ -9,7 +9,7 @@
   position: absolute;
   width: 539px;
   height: 741px;
-  left: 790px;
+  left: 794px;
   top: 104px;
   padding: 20px;
   border: 1px solid lightcyan;
@@ -44,6 +44,19 @@
 #label_text{
   font-family: 'Lobster', cursive;
   color: darkslategrey;
+}
+.l-btn{
+  text-decoration: none;
+  color: grey;
+  font-size: 14px;
+  margin: 1.5px;
+  border-radius: 25px;
+  border: 1px solid;
+  padding: 1px 8px;
+}
+.l-btn:hover{
+color: white;
+background-color: grey;
 }
 
 
