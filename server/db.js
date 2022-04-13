@@ -2,12 +2,6 @@
 // Code for setting up the connection to DB
 const Pool = require('pg').Pool;
 
-const pool = new Pool({
-  user: 'plant_care',
-  password: '1234',
-  host: 'localhost',
-  port: 5432,
-  database: 'plant_care',
-});
+const pool = new Pool();
 
 module.exports = pool;

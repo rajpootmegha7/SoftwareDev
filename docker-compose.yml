@@ -1,0 +1,68 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres:14.1-alpine
+
+    environment:
+      POSTGRES_DATABASE: plant_care
+      POSTGRES_USER: plant_care
+      POSTGRES_PASSWORD: 1234
+
+    volumes: 
+      - ./server/models/docker_db.sql:/docker-entrypoint-initdb.d/docker_db.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  server:
+    container_name: plantcare-node-server
+    environment:
+    
+      POSTGRES_DATABASE: plant_care
+      POSTGRES_USER: plant_care
+      POSTGRES_PASSWORD: 1234
+      PGHOST: db
+
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    command: npm start
+    image: plantcare-server
+    depends_on:
+      - db
+    volumes:
+      - ./server/:/usr/app
+      - /app/node_modules
+    ports:
+      - "4000:4000"
+    networks:
+      - app-network
+  
+  client:
+    build:
+      context: ./client/plantcare
+      dockerfile: Dockerfile
+    image: plantcare-client
+    container_name: plantcare-react-client
+    command: npm start
+    volumes:
+      - ./client/:/usr/app
+      - /app/node_modules
+    depends_on:
+      - server
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+networks:
+    app-network:
+        driver: bridge
+
+volumes:
+    node_modules:
+    web-root:
+      driver: local
