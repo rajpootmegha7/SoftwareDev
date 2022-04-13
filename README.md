@@ -8,7 +8,7 @@ Plant Care is a garden planning web application that allows users to plan out th
 2. Clone this repository to your local machine. To do this, open up the Git terminal and go to the directory you would like the project to reside in. Once you are there, run the following command:
 > `git clone https://github.com/rajpootmegha7/SoftwareDev.git`
 3. Open up the node terminal, and from that terminal go to the new softwaredev directory that was just created.
-4. Run the following command once inside the softwardev directory, softwaredev/server directory, and softwaredev/client/plantcare directory, this will install all dependecies:
+4. Run the following command inside the softwardev directory, softwaredev/server directory, and softwaredev/client/plantcare directory, this will install all dependecies:
 >`npm install`
 5. Install the latest version of PostgreSQL and run the script plant_care_DB_setup.sql from inside ./server/models to set up the database.
 6. Everytime you would like to start the application, run the following command in both softwaredev/client/plantcare and softwaredev/server:
