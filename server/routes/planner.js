@@ -27,7 +27,7 @@ router.post('/', authorization, async (req, res) => {
     // eslint-disable-next-line camelcase
     let {planner_json} = req.body;
     // eslint-disable-next-line camelcase
-    planner_json = '\''+planner_json+'\'';
+    //planner_json = '\''+planner_json+'\'';
 
     // eslint-disable-next-line max-len
     await pool.query('INSERT INTO plant_care.planner (user_id, planner_json) VALUES($1, $2) ON CONFLICT (user_id) DO UPDATE SET planner_json = $2', [req.user, planner_json]);
