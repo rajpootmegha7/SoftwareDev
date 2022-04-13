@@ -18,10 +18,10 @@ Plant Care is a garden planning web application that allows users to plan out th
 ## How to Run Through Docker
 
 1. Install docker by going to the [Docker download page](https://docs.docker.com/get-started/) and picking the installer that matches your operating system.
-2. Once docker is set up, run the following commands in this directory
-> `docker-compose build`
-
-> `docker-compose up -d`
+2. Once docker is set up, run the following command in this directory
+> `docker-compose up --build`
 3. Once the container is successfully running, open up your web browser and put [http://localhost:3000](http://localhost:3000) as the URL.
-4. To stop the application, run the following command
-> `docker-compose stop`
+4. To gracefully terminate the application, use your machine's shortcut key for sending the interrupt (terminate) signal SIGINT
+> `ex: CTRL + C `
+5. Then to clean up docker images/volumes run the following command:
+>  `docker-compose down --volumes`
