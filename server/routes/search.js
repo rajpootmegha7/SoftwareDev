@@ -1,4 +1,5 @@
 //Author: Pranjal Jain
+// code for searching plants from DB based on certain search criteria.
 const router = require("express").Router();
 const pool = require("../db");
 

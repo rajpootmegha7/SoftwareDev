@@ -1,8 +1,10 @@
 //Author: Pranjal Jain
+// this module has code for validating the security question and resetting the password.
 const router = require("express").Router()
 const pool = require("../db");
 const bcrypt = require("bcrypt");
 
+//This code validates the email from DB and sends the security question as response.
 router.post("/validate", async(req, res) => {
     try {
         
@@ -20,7 +22,7 @@ router.post("/validate", async(req, res) => {
     }
 });
 
-
+// this code updates the new password into DB after validating the security answer. 
 router.post("/resetpass", async(req,res) => {
 
     try{
@@ -33,9 +35,7 @@ router.post("/resetpass", async(req,res) => {
 
         const saltRound = 10;
         const salt = await bcrypt.genSalt(saltRound);
-
         const bcryptPassword = await bcrypt.hash(password, salt);
-
         const update = await pool.query("UPDATE plant_care.user SET password=$1 WHERE email = $2", [bcryptPassword, email]);
         res.status(200).json("Password updated successfully")
         

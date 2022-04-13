@@ -1,4 +1,5 @@
 //Author: Pranjal Jain
+// This is a middle ware  which authenticates the token for accessing private data.
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 

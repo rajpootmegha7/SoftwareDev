@@ -1,4 +1,5 @@
 //Author: Pranjal Jain
+//This code checks for missing field in user request comming from login and registration pages.
 module.exports = (req, res, next) => {
     const { first_name , last_name, email, contact_number, password, security_question, security_answer } = req.body;
   

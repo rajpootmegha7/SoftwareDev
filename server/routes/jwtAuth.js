@@ -1,4 +1,6 @@
 //Author: Pranjal Jain
+// This code encrypts the password sent by user while registration and stores user info into the DB
+// and validates the password entered by user from login with decrypted password from DB
 const router = require("express").Router()
 const pool = require("../db");
 const bcrypt = require("bcrypt");
@@ -6,6 +8,7 @@ const jwtGenerator = require("../utils/jwtGenerator");
 const validInfo = require("../middleware/validInfo");
 const authorization = require("../middleware/authorization");
 
+// This code inserts the user info to DB and encrypts the password
 router.post("/register", validInfo, async (req, res) => {
     try{
         const {first_name , last_name, email, contact_number, password, security_question, security_answer} = req.body;
@@ -34,6 +37,8 @@ router.post("/register", validInfo, async (req, res) => {
     };
 });
 
+// This code decrypts the password stored in DB and compares it with password sent in login request
+// and generates token for the user.
 router.post("/login", validInfo, async (req,res) => {
     try{
         const{email, password} = req.body;
@@ -64,6 +69,7 @@ router.post("/login", validInfo, async (req,res) => {
     };
 });
 
+// this code verifies if user is logged in
 router.get("/is-verify", authorization, async(req, res) =>{
     try{
         res.json(true);

@@ -1,12 +1,13 @@
 //Author: Pranjal Jain
+// This module has the code for reteriving and saving planner to DB
 const router = require("express").Router();
 const pool = require("../db");
 const authorization = require('../middleware/authorization');
 
+// code for authorizing and reteriving the planner for user.
 router.get("/", authorization, async(req, res) => {
     try {
         
-
         const planner = await pool.query("SELECT planner_json FROM plant_care.planner where user_id = $1", [req.user]);
         if (planner.rowCount === 0) {
             res.json({})
@@ -19,6 +20,7 @@ router.get("/", authorization, async(req, res) => {
     }
 });
 
+//code for authorizing and saving the planner for user in DB.
 router.post("/", authorization, async(req, res) => {
     try {
         var {planner_json} = req.body

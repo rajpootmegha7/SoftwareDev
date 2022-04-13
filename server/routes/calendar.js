@@ -1,8 +1,10 @@
 //Author: Pranjal Jain
+// This module has the code for reteriving and saving calender to DB
 const router = require("express").Router();
 const pool = require("../db");
 const authorization = require('../middleware/authorization');
 
+// code for authorizing and reteriving the calender for user.
 router.get("/", authorization, async(req, res) => {
     try {
         
@@ -17,7 +19,7 @@ router.get("/", authorization, async(req, res) => {
     }
 });
 
-
+//code for authorizing and saving the calender for user in DB.
 router.post("/", authorization, async(req, res) => {
     try {
         var {calendar_json} = req.body
