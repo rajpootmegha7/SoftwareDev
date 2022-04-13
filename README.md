@@ -6,7 +6,7 @@ Plant Care is a garden planning web application that allows users to plan out th
 
 1. Install Node.js and npm by going to the [Node.js download page](https://nodejs.org/en/download/) and picking the installer that matches your operating system.
 2. Clone this repository to your local machine. To do this, open up the Git terminal and go to the directory you would like the project to reside in. Once you are there, run the following command:
-> `git clone https://github.com/rajpootmegha7/SoftwareDev`
+> `git clone https://github.com/rajpootmegha7/SoftwareDev.git`
 3. Open up the node terminal, and from that terminal go to the new softwaredev directory that was just created.
 4. Run the following command once inside the softwardev directory, softwaredev/server directory, and softwaredev/client/plantcare directory, this will install all dependecies:
 >`npm install`
