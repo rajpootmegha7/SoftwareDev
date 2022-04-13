@@ -4,14 +4,30 @@
     height: 25rem;
 }
 
-#list_title{
-    
-}
-
 #list_title_text{ 
     color: #537E00; 
-    font-size: 30px;
+    font-size: 35px;
     margin-left: 2rem;
-    padding-top: 2rem; ;
+    padding-top: 2rem; 
 }
 
+#same_line{ 
+    text-align: center;
+    display: inline-block;
+}
+
+#img_line{ 
+    vertical-align: middle;
+}
+
+#text_line{
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 1.5rem;
+    color: #537E00; 
+}
+
+#custom_line{
+    border: 1px solid #537E00; 
+}

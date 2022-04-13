@@ -27,7 +27,7 @@ export default function Login() {
         .then(data => {
           if (data.token !== undefined) {
             localStorage.setItem('token', JSON.stringify(data.token).slice(1,-1));
-            history.push('./planner')
+            history.push('./search')
           } else {
             setErrorMsg(data);
             setPassword('');

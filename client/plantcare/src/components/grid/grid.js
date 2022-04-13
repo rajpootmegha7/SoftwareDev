@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import GridLayout from "react-grid-layout";
 import styled from "styled-components";
+
+import herb from '../../images/herb.png'
+import bush from '../../images/bush.png'
+import tree from '../../images/tree.png'
+
+import './style.css'; 
   
   const GridItemWrapper = styled.div`
     background: #FFEDD1; 
@@ -13,6 +19,18 @@ import styled from "styled-components";
   const Root = styled.div`
     padding: 16px;
   `;
+
+  const plantImage = (type) => {
+    if (type == 'tree'){
+        return <img src={tree} width='40' height='40'></img>
+    }
+    else if (type == 'shrub'){
+        return <img src={bush} width='40' height='40'></img>
+    }
+    else { 
+        return <img src={herb} width='40' height='40'></img>
+    }
+}
   
   export const Grid = () => {
     const [names, setNames] = useState([]); 
@@ -83,7 +101,14 @@ import styled from "styled-components";
         <GridLayout layout={getLayouts()} cols={4} rowHeight={125} width={500} onLayoutChange={handleLayoutChange}>
             {names.map(item => (
                 <GridItemWrapper key={item.name}>
-                    <GridItemContent>{item.name}</GridItemContent>
+                    <GridItemContent>
+                        <div id='name'>
+                            {item.name}
+                        </div>
+                        <div id='image_location'>
+                            {plantImage(item.type)}
+                        </div>
+                    </GridItemContent>
                 </GridItemWrapper>
             ))}
         </GridLayout>

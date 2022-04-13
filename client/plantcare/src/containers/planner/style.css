@@ -22,7 +22,8 @@
 #garden { 
     margin-left: 2rem;
     color: #537E00;
-    font-size: 1.5rem; 
+    font-size: 2rem; 
+    margin-bottom: -1px;
 }
 
 .float-container {
@@ -33,12 +34,13 @@
 .float-child-1 {
     width: 60%;
     float: left;
-    padding: 20px;
-    border: 2px solid red;
+    padding: 10px;
+    border: 2px solid grey;
+    border-radius: 25px
 }  
 .float-child-2 {
+    margin-top: -60px;
     width: 40%;
     float: left;
     padding: 20px;
-    border: 2px solid red;
 }  
