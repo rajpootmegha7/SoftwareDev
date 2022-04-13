@@ -1,0 +1,44 @@
+#banner{
+    height: 5rem;
+    position: relative;
+    background-color: #537E00; 
+}
+
+#banner-text{
+    color: white; 
+    font: 'Poppins'; 
+    font-size: 2rem;
+    margin-left: 2rem;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+}
+
+#garden { 
+    margin-left: 2rem;
+    color: #537E00;
+    font-size: 1.5rem; 
+}
+
+.float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+.float-child-1 {
+    width: 60%;
+    float: left;
+    padding: 20px;
+    border: 2px solid red;
+}  
+.float-child-2 {
+    width: 40%;
+    float: left;
+    padding: 20px;
+    border: 2px solid red;
+}  

@@ -7,9 +7,10 @@ import plant_pic from '../../images/plant2.png'
 
 export const PlantList = () => {
     const [emptyPlanner, setEmptyPlanner] = useState(false);
+    const [filledPlanner, setFilledPlanner] = useState([]); 
 
     useEffect(() => {
-        return fetch('http://localhost:4000/auth/planner', {
+        fetch('http://localhost:4000/planner', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -18,21 +19,32 @@ export const PlantList = () => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data); 
-            if (data.length === 0) { 
+            if (JSON.stringify(data) === '{}') { 
                 setEmptyPlanner(true); 
             }
+            else{ 
+                const jsonReceived = JSON.parse(data.planner_json); 
+                setFilledPlanner(jsonReceived.plants); 
+            }
         })
-    }); 
+    }, []); 
 
 
     return (
         <div id='list_block'>
-            <div>
-                <p>My Plants</p>
-                <img src={plant_pic} width='25' height='25'></img>
-                {emptyPlanner === true ? (<p>Please add some plants.</p>): null}
+            <div id='list_title'>
+                <p id='list_title_text'>My Plants</p>
+                {/* <img src={plant_pic} width='25' height='25' id='logo'></img> */}
             </div>
+            <div>
+                {emptyPlanner === true ? (<p>Please add some plants.</p>): null}
+                {filledPlanner.map(item => (
+                    <ul key={item.name}>
+                    <li>{item.name}</li>
+                    </ul>
+                ))}
+            </div>
+            
         </div>
     );
 }

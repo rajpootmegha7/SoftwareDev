@@ -1,17 +1,9 @@
-// import { Responsive, WidthProvider } from "react-grid-layout";
+import React, { useState, useEffect } from 'react';
 import GridLayout from "react-grid-layout";
 import styled from "styled-components";
-
-const layout = [
-    { i: "plant1", x: 0, y: 0, w: 1, h: 1 },
-    { i: "plant2", x: 1, y: 0, w: 1, h: 1 },
-    { i: "plant3", x: 2, y: 0, w: 1, h: 1 },
-    { i: "plant4", x: 3, y: 0, w: 1, h: 1 },
-    { i: "plant5", x: 0, y: 1, w: 1, h: 1 }, 
-  ];
   
   const GridItemWrapper = styled.div`
-    background: #f5f5f5;
+    background: #FFEDD1; 
   `;
   
   const GridItemContent = styled.div`
@@ -21,35 +13,79 @@ const layout = [
   const Root = styled.div`
     padding: 16px;
   `;
-
-  const getLayouts = () => {
-    const savedLayouts = localStorage.getItem("grid-layout");
-    return savedLayouts ? JSON.parse(savedLayouts) : { lg: layout };
-  };
   
   export const Grid = () => {
+    const [names, setNames] = useState([]); 
+    const [grid, setGrid] = useState([]); 
+    const [loading, setLoading] = useState(true); 
 
-    const handleLayoutChange = (layout) => {
-        localStorage.setItem("grid-layout", JSON.stringify(layout));
+
+    const getLayouts = () => {
+        if (!loading){
+            const savedLayouts = localStorage.getItem("grid-layout");
+            return savedLayouts ? JSON.parse(savedLayouts) : { grid };
+        }
+        
     };
+
+    useEffect(() => {
+        fetch('http://localhost:4000/planner', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'token': localStorage.getItem('token')
+          },
+        })
+        .then(response => response.json())
+        .then(data => {
+            const jsonReceived = JSON.parse(data.planner_json); 
+            //console.log(data); 
+            setNames(jsonReceived.plants); 
+            setGrid(jsonReceived.grid); 
+            localStorage.setItem("grid-layout", JSON.stringify(jsonReceived.grid))
+            setLoading(false);
+        })
+    }, []); 
+
+    const handleLayoutChange = (grid) => {
+        localStorage.setItem("grid-layout", JSON.stringify(grid));
+
+        // Rebuild JSON here 
+        console.log(names); 
+        var responseJson = {
+            planner_json: {
+                'plants': names, 
+                'grid': JSON.parse(localStorage.getItem('grid-layout'))
+            }
+        }
+        var stringJSON = JSON.stringify(responseJson); 
+        //console.log(JSON.stringify(responseJson)); 
+        // Post here 
+        //console.log(JSON.stringify(responseJson)); 
+        console.log(stringJSON); 
+        fetch('http://localhost:4000/planner', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'token': localStorage.getItem('token')
+          },
+          body: stringJSON
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Hi"); 
+            //console.log(data); 
+        })
+    };
+
     return (
       <Root>
         <GridLayout layout={getLayouts()} cols={4} rowHeight={125} width={500} onLayoutChange={handleLayoutChange}>
-            <GridItemWrapper key="plant1">
-                <GridItemContent>Plant1</GridItemContent>
-            </GridItemWrapper>
-            <GridItemWrapper key="plant2">
-                <GridItemContent>Plant2</GridItemContent>
-            </GridItemWrapper>
-            <GridItemWrapper key="plant3">
-                <GridItemContent>Plant3</GridItemContent>
-            </GridItemWrapper>
-            <GridItemWrapper key="plant4">
-                <GridItemContent>Plant4</GridItemContent>
-            </GridItemWrapper>
-            <GridItemWrapper key="plant5">
-                <GridItemContent>Plant5</GridItemContent>
-            </GridItemWrapper>
+            {names.map(item => (
+                <GridItemWrapper key={item.name}>
+                    <GridItemContent>{item.name}</GridItemContent>
+                </GridItemWrapper>
+            ))}
         </GridLayout>
       </Root>
     );

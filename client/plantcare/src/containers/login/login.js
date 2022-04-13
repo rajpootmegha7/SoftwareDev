@@ -26,7 +26,7 @@ export default function Login() {
         .then(response => response.json())
         .then(data => {
           if (data.token !== undefined) {
-            localStorage.setItem('token', JSON.stringify(data.token));
+            localStorage.setItem('token', JSON.stringify(data.token).slice(1,-1));
             history.push('./planner')
           } else {
             setErrorMsg(data);

@@ -1,6 +1,17 @@
 #list_block{ 
     background-color: #FFEDD1;
-    width:75%;
-    margin-right: 0px;
-    height: 100px;
+    border-radius: 5%;
+    height: 25rem;
 }
+
+#list_title{
+    
+}
+
+#list_title_text{ 
+    color: #537E00; 
+    font-size: 30px;
+    margin-left: 2rem;
+    padding-top: 2rem; ;
+}
+
