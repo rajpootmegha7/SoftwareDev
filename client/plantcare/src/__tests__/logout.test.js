@@ -2,34 +2,42 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Logout from '../containers/logout/logout';
+import MemoryRouter from 'react-router-dom/BrowserRouter';
 
-it('renders without crashing', () => {
-  render(<Logout />);
-  expect(screen.getByText('Successfully Logged Out')).toBeInTheDocument();
+describe('Render Logout Page', () => {
+  it('Logout Message should appear', () => {
+    render(<MemoryRouter><Logout /></MemoryRouter>);
+    expect(screen.getByText('Successfully Logged Out')).toBeInTheDocument();
+  });
 });
 
-// // include as many test cases as you want here
-// const links = [
-//   { text: 'About', location: "./about" },
-//   { text: 'Search', location: "./search" },
-//   { text: 'Planner', location: "./planner" },
-// ];
-// // I use test.each to iterate the test cases above
-// test.each(links)(
-//   "Check if Nav Bar have %s link.",
-//   (link) => {
-//     render(<Navigation />);
-//     //Ensure the text is in the dom, will throw error it can't find
-//     const linkDom = screen.getByText(link.text); 
-		
-//     //use jest assertion to verify the link property
-//     expect(linkDom).toHaveAttribute("href", link.location);
-//   }
-// );
+describe('Sign Out a User', () => {
+  it('should sign out a user', () => {
+    const spyLoStoRemove = jest.spyOn(Logout.prototype, 'componentDidMount');
+    render(<MemoryRouter><Logout /></MemoryRouter>);
+    expect(spyLoStoRemove).toHaveBeenCalled();
+  });
+});
+
+// let wrapper;
+// beforeEach(() => {
+//   wrapper = shallow(<MemoryRouter><Logout /></MemoryRouter>);
+// });
+
+//   it('should check `componentDidMount()`', () => {
+//     const instance = wrapper.instance(); // you assign your instance of the wrapper
+//     jest.spyOn(instance, 'randomFunction'); // You spy on the randomFunction
+//     instance.componentDidMount();
+//     expect(instance.randomFunction).toHaveBeenCalledTimes(1); // You check if the condition you want to match is correct.
+//   });
+
+// it('renders without crashing', () => {
+//   render(<Logout />);
+//   expect(screen.getByText('Successfully Logged Out')).toBeInTheDocument();
+// });
 
 // import React, { Component } from 'react'
 // import { Link} from "react-router-dom";
-// import './style.css'
 // import Button from '../../components/Button'
 // // class component for logout functionality.
 
