@@ -67,10 +67,15 @@ constructor(props) {
     this.onClickDefault = this.onClickDefault.bind(this);
     this.rowPlantDescription = this.rowPlantDescription.bind(this);
     this.imageBodyTemplate = this.imageBodyTemplate.bind(this);
+    this.onClickAddPlannerButton= this.onClickAddPlannerButton.bind(this);
 }
 
 componentDidMount(){
     this.setState({plantData: this._plantdata})
+}
+
+componentDidUpdate(){
+    console.log('this.state',this.state)
 }
 
 typeOptionTemplate(option) {
@@ -236,6 +241,42 @@ onClickSearchButton =(e)=>{
     });
 
 }
+onClickAddPlannerButton=(e)=>{
+    alert('here')
+    e.preventDefault();
+    let data=[{}];
+    data = JSON.stringify(this.state.selectedPlants);
+    console.log('data', data)
+
+    var request = new Request('https://localhost:4000/search/add_plantlist',{
+        method:'POST',
+        header: new Headers({'Content-Type':'application/json'}),
+        body: JSON.stringify(this.data)
+    });
+
+    var that = this;
+    fetch(request)
+                .then(function (response) {
+
+                    if (response.status === 400) throw new Error('Data Not Retrieved');
+                    response.json().then(function (res) {
+                        console.log('Sucessfully Saved your plant list');
+        
+                    })
+
+                        .catch((err) => {
+                            console.log('In catch1: ' + err.message);
+                            that.setState({ plantData: null })
+                        })
+                })
+                .catch(function (err) {
+                    console.log('In catch2: ' + err.message);
+                    that.setState({ data: null })
+                });
+
+            
+
+    }
 onClickDefault = (e)=>{
     e.preventDefault();
     this.setState({
@@ -328,12 +369,7 @@ onClickDefault = (e)=>{
                                 <Column selectionMode="multiple" headerStyle={{ width: '10em' }} exportable={false}></Column>
                             </DataTable>
                             <div className='planner_btn_card'>
-                            <Button className='planner_btn'>
-                            <Link className='planner-link' to={{
-                            pathname: '/Planner',
-                            state: this.state.selectedPlants}}>Add To Planner
-                        </Link>
-                    </Button>
+                            <Button className='planner_btn' onClick={this.onClickAddPlannerButton}>Add To Planner</Button>
                 </div>
 
                         </div>
