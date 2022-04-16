@@ -19,5 +19,6 @@ Plant Care is a garden planning web application that allows users to plan out th
 > `docker-compose up`
 8. Then to kill these containers run the following command:
 >  `docker-compose down --volumes`
-  
-
+ 
+To view instructions with images in Confluence:
+https://softwaredev22.atlassian.net/wiki/spaces/PC/pages/2752513/Developer+Guide
