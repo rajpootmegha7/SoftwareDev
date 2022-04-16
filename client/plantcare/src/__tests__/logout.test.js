@@ -4,20 +4,21 @@ import { render, screen } from '@testing-library/react';
 import Logout from '../containers/logout/logout';
 import MemoryRouter from 'react-router-dom/BrowserRouter';
 
-describe('Render Logout Page', () => {
-  it('Logout Message should appear', () => {
+describe('Test Logout Page', () => {
+  
+  it('Test Render - Logout Message Should Appear', () => {
     render(<MemoryRouter><Logout /></MemoryRouter>);
     expect(screen.getByText('Successfully Logged Out')).toBeInTheDocument();
   });
-});
-
-describe('Sign Out a User', () => {
-  it('should sign out a user', () => {
+  
+  it('Test componentDidMount - Data Should Clear', () => {
     const spyLoStoRemove = jest.spyOn(Logout.prototype, 'componentDidMount');
     render(<MemoryRouter><Logout /></MemoryRouter>);
     expect(spyLoStoRemove).toHaveBeenCalled();
   });
 });
+
+
 
 // let wrapper;
 // beforeEach(() => {
@@ -35,28 +36,3 @@ describe('Sign Out a User', () => {
 //   render(<Logout />);
 //   expect(screen.getByText('Successfully Logged Out')).toBeInTheDocument();
 // });
-
-// import React, { Component } from 'react'
-// import { Link} from "react-router-dom";
-// import Button from '../../components/Button'
-// // class component for logout functionality.
-
-// export default class Logout extends Component {
-//   componentDidMount(){
-//     localStorage.clear('firstname');
-//     localStorage.setItem('isLogged', false);
-//   }
-//   render() {
-//     return (
-//       <div className='logoff_container'>
-//           <p>Successfully Logged Out</p>
-//             <Button className='login_btn'>
-//               <Link className='planner-link' to={{
-//               pathname: '/Login',
-//               }}>Login
-//               </Link>
-//             </Button>
-//         </div>
-//     )
-//   }
-// }

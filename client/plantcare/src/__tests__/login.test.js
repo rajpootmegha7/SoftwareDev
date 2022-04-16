@@ -2,38 +2,15 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Login from '../containers/login/login';
+import MemoryRouter from 'react-router-dom/BrowserRouter';
 
-
-// include as many test cases as you want here
-const links = [
-  { text: 'About', location: "./about" },
-  { text: 'Search', location: "./search" },
-  { text: 'Planner', location: "./planner" },
-];
-// I use test.each to iterate the test cases above
-test.each(links)(
-  "Check if Nav Bar have %s link.",
-  (link) => {
-    render(<Navigation />);
-    //Ensure the text is in the dom, will throw error it can't find
-    const linkDom = screen.getByText(link.text); 
-		
-    //use jest assertion to verify the link property
-    expect(linkDom).toHaveAttribute("href", link.location);
-  }
-);
-
-// import React, { Component, Fragment, useState } from 'react'
-// import './style.css'
-
-
-// import { InputText } from 'primereact/inputtext';
-// import { Password } from 'primereact/password';
-// import { Button } from 'primereact/button';
-// import logo_reference from '../../images/plantcare.png'
-// import { useHistory } from "react-router-dom";
-// import Footer from '../Footer/Footer';
-
+describe('Test Render - Login Page', () => {
+  it('Welcome Message Should Appear', () => {
+    render(<MemoryRouter><Login /></MemoryRouter>);
+    expect(screen.getByText('Welcome to')).toBeInTheDocument();
+    expect(screen.getByText('PlantCare')).toBeInTheDocument();
+  });
+});
 
 // export default function Login() {
 //     const [email, setEmail] = useState();
