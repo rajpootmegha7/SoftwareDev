@@ -2,6 +2,10 @@
 
 Plant Care is a garden planning web application that allows users to plan out the space/garden of their dreams quickly. People want a high-yield crop garden or a beautiful indoor space with plants but lack the knowledge and expertise to plan and create it. With PlantCare, users are able to search for different plants based on a number of filters, plan out which plants will go into their indoor space and garden and be aware of plant information such as any watering requirements.
 
+To view instructions with images in Confluence:
+https://softwaredev22.atlassian.net/wiki/spaces/PC/pages/2752513/Developer+Guide
+
+
 ## How to Run Through Docker
 
 1. Clone the SoftwareDev repository to your local machine. 
@@ -20,5 +24,3 @@ Plant Care is a garden planning web application that allows users to plan out th
 8. Then to kill these containers run the following command:
 >  `docker-compose down --volumes`
  
-To view instructions with images in Confluence:
-https://softwaredev22.atlassian.net/wiki/spaces/PC/pages/2752513/Developer+Guide
