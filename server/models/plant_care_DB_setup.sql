@@ -248,14 +248,14 @@ ALTER TABLE IF EXISTS plant_care.location
 
 ------------------------------------------
 
-INSERT INTO plant_care.plant_type VALUES (1, 'herb');
-INSERT INTO plant_care.plant_type VALUES (2, 'shrub');
-INSERT INTO plant_care.plant_type VALUES (3, 'tree');
+INSERT INTO plant_care.plant_type VALUES (1, 'Herb');
+INSERT INTO plant_care.plant_type VALUES (2, 'Shrub');
+INSERT INTO plant_care.plant_type VALUES (3, 'Tree');
 
-INSERT INTO plant_care.season_type VALUES (1, 'spring');
-INSERT INTO plant_care.season_type VALUES (2, 'summer');
-INSERT INTO plant_care.season_type VALUES (3, 'fall');
-INSERT INTO plant_care.season_type VALUES (4, 'winter');
+INSERT INTO plant_care.season_type VALUES (1, 'Spring');
+INSERT INTO plant_care.season_type VALUES (2, 'Summer');
+INSERT INTO plant_care.season_type VALUES (3, 'Fall');
+INSERT INTO plant_care.season_type VALUES (4, 'Winter');
 
 -- INSERT INTO plant_care.plant VALUES (id, plant_description, plant_type_id, season_type_id, plant_image, water_schedule, plant_name) 
 
@@ -319,17 +319,17 @@ INSERT INTO plant_care.plant VALUES (27, 'one of the first trees to bloom in the
 
 -- GEORGIA
 
-INSERT INTO plant_care.plant VALUES (28, 'a deciduous tree in the Sapindaceae (soapberry) family. It may grow from 20 to 70 feet tall',3, 3, 'https://www.wildflower.org/image_archive/160x120/SAW/SAW_00052.JPG',1, 'Southern Sugar Maple');
+INSERT INTO plant_care.plant VALUES (28, 'a deciduous tree in the Sapindaceae (soapberry) family. It may grow from 20 to 70 feet tall',3, 3, 'https://www.lsuagcenter.com/~/media/system/8/f/0/3/8f036150068ab45909ade079288934e9/sugar-maple-hztjpg.jpg',1, 'Southern Sugar Maple');
 
-INSERT INTO plant_care.plant VALUES (29, 'a handsome shrub or small tree with showy thyrses (often called panicles) of deep red or yellow, campanulate flowers in early spring',3, 1, 'https://www.wildflower.org/image_archive/160x120/PCD1287/PCD1287_IMG0085.JPG',2, 'Red Buckeye');
+INSERT INTO plant_care.plant VALUES (29, 'a handsome shrub or small tree with showy thyrses (often called panicles) of deep red or yellow, campanulate flowers in early spring',3, 1, 'https://www.directnativeplants.com/wp-content/uploads/2020/03/Aesculus-pavia.jpg',2, 'Red Buckeye');
 
-INSERT INTO plant_care.plant VALUES (30, 'a handsome shrub that has memorable long fluffy white flower clusters in early July.',2, 2, 'https://www.wildflower.org/image_archive/160x120/SCB/SCB_IMG1410.JPG',1, 'Bottlebrush Buckeye');
+INSERT INTO plant_care.plant VALUES (30, 'a handsome shrub that has memorable long fluffy white flower clusters in early July.',2, 2, 'https://mortonarb.org/app/uploads/2020/12/37754_ca_object_representations_media_15583_large-1920x1282.5-c-default.jpg',1, 'Bottlebrush Buckeye');
 
-INSERT INTO plant_care.plant VALUES (31, 'A climbing, woody vine reaching 50 ft. long with showy, orange-red, trumpet-shaped flowers',1, 1, 'https://www.wildflower.org/image_archive/160x120/LMP/LMP_IMG0022.JPG',3, 'Crossvine');
+INSERT INTO plant_care.plant VALUES (31, 'A climbing, woody vine reaching 50 ft. long with showy, orange-red, trumpet-shaped flowers',1, 1, 'https://www.gardenia.net/storage/app/public/uploads/images/detail/PL080338Optimized.jpg',3, 'Crossvine');
 
-INSERT INTO plant_care.plant VALUES (32, 't has long, arching branches and yellow-green fall foliage, but its most striking feature is the clusters of glossy, iridescent-purple fruit (sometimes white) which hug the branches at leaf axils in the fall and winter.',1, 4, 'https://www.wildflower.org/image_archive/160x120/BL/BL_IMG000062.JPG',3, 'American Beautyberry');
+INSERT INTO plant_care.plant VALUES (32, 'it has long, arching branches and yellow-green fall foliage, but its most striking feature is the clusters of glossy, iridescent-purple fruit (sometimes white) which hug the branches at leaf axils in the fall and winter.',1, 4,'https://www.gardeningknowhow.com/wp-content/uploads/2013/08/Beautyberry-400x225.jpg',3, 'American Beautyberry');
 
-INSERT INTO plant_care.plant VALUES (33, 'a native shrub that reaches 6 to 9 feet in height. The flowers are deep red to maroon, and last a month or more.',2, 1, 'https://www.wildflower.org/image_archive/160x120/J_M/J_M_IMG0339.JPG',1, 'Eastern Sweetshrub');
+INSERT INTO plant_care.plant VALUES (33, 'a native shrub that reaches 6 to 9 feet in height. The flowers are deep red to maroon, and last a month or more.',2, 1, 'https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Calycanthus-floridus--habit_--Phillip-Merit--CC-BY-NC-SA-2-0_12347313973_m.jpg',1, 'Eastern Sweetshrub');
 
 -- FLORIDA
 
