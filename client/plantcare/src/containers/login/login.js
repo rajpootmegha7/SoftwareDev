@@ -9,7 +9,10 @@ import { Toast } from 'primereact/toast';
 import logo_reference from '../../images/plantcare.png'
 import { useHistory } from "react-router-dom";
 import Footer from '../Footer/Footer';
-
+/*
+Author: Megha Rajpoot
+Description : Login class component which contains the functionality for user to sign to Plant Care application.
+*/
 
 export default function Login() {
     const [email, setEmail] = useState();
@@ -22,7 +25,7 @@ export default function Login() {
     const showError = (message) => {
         toast.current.show({severity:'error', summary: 'Error Message', detail: message, life: 3000});
     }
-
+    //Function for validation of email id and password entered by user.
     async function loginUser(credentials) {
         return fetch('http://localhost:4000/auth/login', {
           method: 'POST',
@@ -35,6 +38,8 @@ export default function Login() {
         .then(data => {
           if (data.token !== undefined) {
             localStorage.setItem('token', JSON.stringify(data.token).slice(1,-1));
+            localStorage.setItem('fname', JSON.stringify(data.first_name).slice(1,-1));
+            localStorage.setItem('user_id', JSON.stringify(data.user_id).slice(1,-1));
             history.push('./search')
           } else {
             setErrorMsg(data);
@@ -70,7 +75,8 @@ export default function Login() {
                                 onChange={e => setEmail(e.target.value)}
                                 required
                             />
-                        </span>    
+                        </span>  
+                        {errorMsg.length > 0 ? (<p>{errorMsg}</p>): null}  
                     </div>
                     <p id='label_text'>Enter your Password</p>
                     <Password placeholder ='Enter your password' onChange={e => setPassword(e.target.value)} toggleMask />
