@@ -8,11 +8,18 @@ import { Toast } from 'primereact/toast';
 import { Dropdown } from 'primereact/dropdown';
 import logo_reference from '../../images/plantcare.png'
 import Footer from '../Footer/Footer';
-
-
-
-// let options = useMemo(() => countryList().getData(), []);
-
+/*
+Author: Megha Rajpoot
+Course : ITWS_6700 Software development 
+Description: Register class component will allow user to register to the application using some mandatory data :
+1. Email address
+2. FirstName, LastName,
+3. Password
+4. Security Question
+5. Security Answer
+6. Contact number
+Once user register successfully, he/she/they will be navigated to the login page. 
+*/
 export default class register extends Component {
 
     constructor(props) {
@@ -44,6 +51,7 @@ export default class register extends Component {
         this.showError = this.showError.bind(this);
 
     }
+    //Function to change the state once security question is selected or updated.
     onSecurityQuestionChange(event) {
         event.preventDefault();
         console.log(event);
@@ -51,6 +59,7 @@ export default class register extends Component {
         return;
 
     }
+    // Function to perform field level validations.
     onclickSubmit(event) {
         event.preventDefault();
 
@@ -97,7 +106,7 @@ export default class register extends Component {
         
         this.verifyRegistration(data);
     }
-
+    // Function to save the data into the postgresql and catch the response of successfull registration.
     verifyRegistration(data) {
         console.log('Verifying user input');
         var request = new Request('http://localhost:4000/auth/register', {
@@ -123,10 +132,11 @@ export default class register extends Component {
                 that.showError(err.message);
             });
         }
-
+    //Function to display the success toast message.
     showSuccess(message) {
         this.toast.show({ severity: 'success', summary: 'Success Message', detail: message, life: 3000 });
     }
+    //Function to display the error toast message.
     showError(message) {
         this.toast.show({ severity: 'error', summary: 'Error Message', detail: message, life: 3000 });
     }
