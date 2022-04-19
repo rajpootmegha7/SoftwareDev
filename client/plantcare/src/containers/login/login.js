@@ -1,26 +1,28 @@
-import React, { Component, Fragment, useState } from 'react'
+import React, { Component, Fragment, useState, useRef } from 'react'
 import './style.css'
 
 
 import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
 import { Button } from 'primereact/button';
+import { Toast } from 'primereact/toast'; 
 import logo_reference from '../../images/plantcare.png'
 import { useHistory } from "react-router-dom";
 import Footer from '../Footer/Footer';
 
-/*
-Author: Megha Rajpoot
-Description : Login class component which contains the functionality for user to sign to Plant Care application.
-*/
 
 export default function Login() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState(); 
     const [errorMsg, setErrorMsg] = useState(''); 
     let history = useHistory(); 
+    const toast = useRef(null);
 
-    //Function for validation of email id and password entered by user.
+
+    const showError = (message) => {
+        toast.current.show({severity:'error', summary: 'Error Message', detail: message, life: 3000});
+    }
+
     async function loginUser(credentials) {
         return fetch('http://localhost:4000/auth/login', {
           method: 'POST',
@@ -33,11 +35,10 @@ export default function Login() {
         .then(data => {
           if (data.token !== undefined) {
             localStorage.setItem('token', JSON.stringify(data.token).slice(1,-1));
-            localStorage.setItem('fname', JSON.stringify(data.first_name).slice(1,-1));
-            localStorage.setItem('user_id', JSON.stringify(data.user_id).slice(1,-1));
             history.push('./search')
           } else {
             setErrorMsg(data);
+            showError(data)
             setPassword('');
           }
         })
@@ -45,10 +46,11 @@ export default function Login() {
             console.log(error)
         ); 
     }
-   
 
     return(
+        
         <Fragment>
+            <Toast ref={toast} />
             <div className='logo'><img src={logo_reference} alt="Plants" width="200" height="60" /></div>
                 <div id='image_container'></div>
                 <div id="login_container">
@@ -75,7 +77,6 @@ export default function Login() {
                     <span id="forgot_password">
                         <a  className='l-btn' href="/Forgot-Password"> Forgot Password </a>
                     </span>
-                    {errorMsg.length > 0 ? (<p>{errorMsg}</p>): null}
 
                     <Button id="button_submit" label="Submit" className="p-button-outlined p-button-success" onClick={() => loginUser({email: email, password: password})} />
                 </div>
