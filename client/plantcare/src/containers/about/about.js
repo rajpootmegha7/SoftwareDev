@@ -5,7 +5,10 @@ import elo from '../../images/elo.png'
 import pranjal from '../../images/Pranjal.jpeg'
 import megha from '../../images/Megha.jpg'
 import Footer from '../Footer/Footer'
-
+/*
+Author: Megha Rajpoot
+Description: About us page of plant care. which contains details about our application and developers.
+*/
 
 export default class about extends Component {
     render() {

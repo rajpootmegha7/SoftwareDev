@@ -1,0 +1,41 @@
+.week-block{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#day-card{
+    background-color: #FFEDD1;
+    height: auto;
+    width: 8rem;
+    margin: 0.5px;
+    border-radius: 10px;
+    display: none;
+    text-align: center;
+    padding-bottom: 8px;
+}
+
+#day-card>p{
+    font-size: 24px;
+    text-align: center;
+    color: #537E00;
+    border-bottom: 0.5px solid grey;
+    padding-bottom: 5px;
+    font-weight: lighter;
+}
+
+#board-week-calender{
+    margin: 15px 0px;
+}
+.wk-btn{
+    border: unset;
+    background: #537E00;
+    color: white;
+    padding: 0px 2px;
+    margin: 2.5px;
+}
+.wk-btn:hover{
+    border:1px solid #537E00;
+    color: #537E00;
+    background-color: white;
+    cursor: pointer;
+}

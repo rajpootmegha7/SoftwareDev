@@ -4,10 +4,7 @@ import './style.css'
 import Button from '../../components/Button'
 // class component for logout functionality.
 export default class Logout extends Component {
-  componentDidMount(){
-    localStorage.clear('firstname');
-    localStorage.setItem('isLogged', false);
-  }
+
   render() {
     return (
       <div className='logoff_container'>

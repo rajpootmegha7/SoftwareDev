@@ -16,31 +16,139 @@
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-
+}
+.planner_container{
+    background-color: white ;
+    height: inherit;
 }
 
-#garden { 
-    margin-left: 2rem;
+.planner_desk{
+    height: auto;
+    width: 100%;
+    padding: 25px;
+    display: inline-flex;
+    justify-content: space-around;
+}
+.plant-list_menu {
+  float: right;
+  text-align: center;
+  border: 1px solid #FFEDD1;
+  background-color: #FFEDD1;
+  border-radius: 10px;
+}
+.plant-list_menu>div>p{
+    font-size: 36px;
     color: #537E00;
-    font-size: 2rem; 
-    margin-bottom: -1px;
+    margin: 6px;
+    border-bottom: 1px solid burlywood;
+    padding-bottom: 5px;
 }
 
-.float-container {
-    border: 3px solid #fff;
-    padding: 20px;
+.p-listbox {
+    background: unset;
+    border: unset;
+    border-radius: unset;
+
+}
+.p-listbox .p-listbox-list .p-listbox-item {
+    color: #537E00;
 }
 
-.float-child-1 {
-    width: 60%;
-    float: left;
-    padding: 10px;
-    border: 2px solid grey;
-    border-radius: 25px
-}  
-.float-child-2 {
-    margin-top: -60px;
-    width: 40%;
-    float: left;
-    padding: 20px;
-}  
+.msg_container>p{
+    color: red;
+    width: 75%;
+    font-size: 41px;
+    text-align: center;
+    padding: 10px 25px;
+    border: 1px solid;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+.msg_container{
+    
+    margin-bottom: 20em;
+}
+.btn-saveplanner{
+    background-color: #537E00;
+    border: unset;
+    height: max-content;
+    margin: auto;
+    margin-right: 0px;
+}
+.garden_area_board{
+    width: 53%;
+}
+.garden_area_heading{
+    display: inline-flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+}
+
+.garden_area_heading>p{
+    color: #537E00;
+    font-size: 36px;
+    font-family: Roboto;
+}
+
+.plant-board{
+    height: auto;
+    padding: 15px;
+    border: 1px solid lightgray;
+}
+#ipblocks{
+    font-style: italic;
+    font-size: 15px;
+}
+
+.p-tabview >.p-tabview-panels {
+    padding: unset;
+}
+.p-tabview-title{
+    margin: 3px;
+    font-size: small;
+}
+
+.square_details{
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.square_blocks{
+    background-color: #FFEDD1;
+    color: #FFEDD1;
+    width: 100px;
+    height: 100px;
+    border: 1px solid burlywood;
+}
+
+.saved_container{
+    margin: 11px;
+    width: 51%;
+    padding: 1%;
+}
+
+.save_board_btn{
+    float: right;
+    position: relative;
+    margin-right: 15%;
+    margin-top: 4%;
+    background-color: #537E00;
+    border: 1px solid #537E00;
+}
+.p-tabview-nav-content{
+    border: 1px solid lightgreen;
+}
+
+.calender-board{
+    height: auto;
+    width:79%;
+    position: absolute;
+}
+
+.calender-board>div>p{
+    color: #537E00;
+    font-size: 36px;
+    font-family: Roboto;
+}

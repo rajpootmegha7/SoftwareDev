@@ -70,7 +70,7 @@ router.post('/login', validInfo, async (req, res) => {
     const token = jwtGenerator(user.rows[0].user_id);
 
     // eslint-disable-next-line max-len
-    res.json({'token': token, 'first_name': user.rows[0].first_name, 'last_name': user.rows[0].last_name});
+    res.json({'token': token, 'first_name': user.rows[0].first_name, 'last_name': user.rows[0].last_name, 'user_id': user.rows[0].user_id});
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');

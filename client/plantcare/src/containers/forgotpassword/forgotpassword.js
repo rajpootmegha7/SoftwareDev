@@ -7,7 +7,12 @@ import { Toast } from 'primereact/toast';
 import { Password } from 'primereact/password';
 import Button from '../../components/Button';
 import logo_reference from '../../images/plantcare.png';
-
+/*
+Author: Megha Rajpoot
+Description: Forgot password component handles all functions to verify the user,
+and once verification is success it allow them to reset the password.
+There are conditions for the user if validation is not passed then reset password window will not appear.
+*/
 
 export default class forgotpassword extends Component {
 
@@ -30,7 +35,7 @@ export default class forgotpassword extends Component {
         this.clickSubmitPass = this.clickSubmitPass.bind(this);
        
     }
-
+    //Function to handle the click submit button event.
     clickSubmitEmail() {
         var data = {
             email: this.state.emailAddress,
@@ -39,7 +44,7 @@ export default class forgotpassword extends Component {
         console.log(data);
         this.verifyEmail(data);
     }
-
+    //Function to handle submit password event with validation for conform password.
     clickSubmitPass() {
         var data = {
             email: this.state.emailAddress,
@@ -62,6 +67,7 @@ export default class forgotpassword extends Component {
         this.updatePass(data);
         
     }
+    //Function to save the new password into the database.
     updatePass(data) {
         var request = new Request('http://localhost:4000/forgotPassword/resetpass', {
             method: 'POST',
@@ -90,7 +96,7 @@ export default class forgotpassword extends Component {
             that.showError(err.message);
         });
     }
-
+    //Function to verify the email of the user along with the security question and answer.
     verifyEmail(data) {
             var request = new Request('http://localhost:4000/forgotPassword/validate', {
                 method: 'POST',
@@ -120,10 +126,11 @@ export default class forgotpassword extends Component {
         }
     
 
-
+    //Function to show success toast message.
     showSuccess(message) {
         this.toast.show({ severity: 'success', summary: 'Success Message', detail: message, life: 3000 });
     }
+    //Function to show error toast message.
     showError(message) {
         this.toast.show({ severity: 'error', summary: 'Error Message', detail: message, life: 3000 });
     }
