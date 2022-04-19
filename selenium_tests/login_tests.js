@@ -5,7 +5,7 @@ const chrome = require('selenium-webdriver/chrome');
 const service = new chrome.ServiceBuilder(''); // Add chromewebdriver local path
 const driver = new Builder().forBrowser('chrome').setChromeService(service).build();
 
-// Test to see if user can log in 
+// Test to see if user can log in successfully (make sure that you have an account in the database with the credentials below)
 driver.navigate().to("http://localhost:3000/login")
 .then(() => driver.findElement(By.id('form_input')).sendKeys('test@email.com')) 
 .then(() => driver.findElement(By.className('p-inputtext p-component p-password-input')).sendKeys('123456'))

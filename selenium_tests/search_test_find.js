@@ -6,6 +6,8 @@ const chrome = require('selenium-webdriver/chrome');
 const service = new chrome.ServiceBuilder(''); // Add chromewebdriver local path
 const driver = new Builder().forBrowser('chrome').setChromeService(service).build();
 
+// Search for plant and make sure it is successful
+
 driver.navigate().to("http://localhost:3000/about")
 .then(() => driver.executeScript("window.localStorage.setItem('token','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiMiIsImlhdCI6MTY0OTk5OTE4MCwiZXhwIjoxNjUwMDAyNzgwfQ.Bd7Ena_KmF_SY2wAualKXtBMQu4x90fthyMxJcbaxbk')"))
 .then(() => driver.navigate().to("http://localhost:3000/search"))
