@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Style.css'
-
+//Footer component of plantcare
 export default class Footer extends Component {
     render() {
         return (
