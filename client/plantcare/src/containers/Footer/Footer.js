@@ -6,7 +6,7 @@ export default class Footer extends Component {
         return (
             
            <div className='Footer_container'>
-                 <a href='https://github.com'> GitHub - PlantCare 22'</a>   
+                 <a href='https://github.com'> GitHub - PlantCare 22</a>   
            </div>
         )
     }
