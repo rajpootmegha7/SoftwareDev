@@ -1,11 +1,10 @@
 import "./style.css"
 
-import React, { Component, Fragment } from 'react'
-import {  Link } from "react-router-dom";
+import React from 'react'
 import logo from '../../images/plantcare.png'
 import { Menubar } from 'primereact/menubar'
-import { Button } from 'primereact/button'
- 
+
+// Navigation bar for the plant care
 const Navigation = () => {
    const navlist = [
       {label: 'About', command: () => {
@@ -18,6 +17,8 @@ const Navigation = () => {
       window.location.href='./planner'
       }},
       {label: 'Logout', command: () => {
+         localStorage.clear('fname');
+         localStorage.setItem('isLogged', false);
          window.location.href='./logout'
          }}
    ];
@@ -27,7 +28,8 @@ const Navigation = () => {
        <div>
           <header>
              <nav>
-                <Menubar model={navlist} start={start} end={localStorage.getItem('firstname')}/>
+                {localStorage.getItem('fname') === null ? <Menubar model={navlist} start={start} /> :
+                <Menubar model={navlist} start={start} end={'Hi, '+ localStorage.getItem('fname')}/>}
              </nav>
           </header>
        </div>

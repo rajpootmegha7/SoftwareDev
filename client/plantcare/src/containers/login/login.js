@@ -9,6 +9,10 @@ import logo_reference from '../../images/plantcare.png'
 import { useHistory } from "react-router-dom";
 import Footer from '../Footer/Footer';
 
+/*
+Author: Megha Rajpoot
+Description : Login class component which contains the functionality for user to sign to Plant Care application.
+*/
 
 export default function Login() {
     const [email, setEmail] = useState();
@@ -16,6 +20,7 @@ export default function Login() {
     const [errorMsg, setErrorMsg] = useState(''); 
     let history = useHistory(); 
 
+    //Function for validation of email id and password entered by user.
     async function loginUser(credentials) {
         return fetch('http://localhost:4000/auth/login', {
           method: 'POST',
@@ -28,6 +33,8 @@ export default function Login() {
         .then(data => {
           if (data.token !== undefined) {
             localStorage.setItem('token', JSON.stringify(data.token).slice(1,-1));
+            localStorage.setItem('fname', JSON.stringify(data.first_name).slice(1,-1));
+            localStorage.setItem('user_id', JSON.stringify(data.user_id).slice(1,-1));
             history.push('./search')
           } else {
             setErrorMsg(data);
@@ -38,6 +45,7 @@ export default function Login() {
             console.log(error)
         ); 
     }
+   
 
     return(
         <Fragment>

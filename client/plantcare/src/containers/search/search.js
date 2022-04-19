@@ -18,6 +18,12 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import Footer from '../Footer/Footer';
 
+/*
+Author : Megha Rajpoot
+Description :The search class components contains various filters for plantdata, plant_type, seasons and locations.
+User can also search the database using plant name.
+*/
+
 export default class Search extends Component {
 constructor(props) {
     super(props)
@@ -33,6 +39,7 @@ constructor(props) {
         first: 0,
         rows: 5,
     }
+    //default 2 plants render when there is no filter selected on the search page.
     this._plantdata = [
         {code:1, desc: "Native to the rainforests in Brazil, the Christmas cactus is a popular, low maintenance houseplant and a favorite pass-along plant that can live for years. Although the Christmas cactus is a true cactus, it is of the tropical variety and is used to growing as an epiphyte off tree branches in areas of heavy moisture and high humidity. With a few tricks, you can easily get this tropical plant to blossom year after year indoors.", 
         name: 'Christmas Cactus', image:'https://www.gardeningknowhow.com/wp-content/uploads/2021/11/christmas-cactus-1.jpg',plant_size: 2, water_schedule:3, plant_type: 1},
@@ -72,7 +79,7 @@ constructor(props) {
 componentDidMount(){
     this.setState({plantData: this._plantdata})
 }
-
+//Function for selecting image type in plant type filter for the icons.
 typeOptionTemplate(option) {
 
     return (
@@ -82,6 +89,7 @@ typeOptionTemplate(option) {
         </div>
     );
 }
+//Function to select the type template.
 selectedTypeTemplate(option, props) {
     if (option) {
         return (
@@ -98,19 +106,19 @@ selectedTypeTemplate(option, props) {
         </span>
     );
 }
-
+//Function to set the state when plant type change.
 onPlantTypeChange(e) {
     this.setState({ plantType: e.value });
 }
-
+//Function to set the state when season type change.
 onSeasonChange(e) {
     this.setState({ season: e.value });
 }
-
+//Function to set the state when location type change.
 onLocationChange(e) {
     this.setState({ location: e.value });
 }
-
+// function to set the paginator template in data table.
 onCustomPage(event) {
     this.setState({
         first: event.first,
@@ -118,12 +126,13 @@ onCustomPage(event) {
         currentPage: event.page + 1
     });
 }
+// Function to set the image in the data table.
 imageBodyTemplate=(rowData)=>{
     return(<img id='img-plant'src={rowData.image}
     onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} 
     alt="" className="product-image" />);
 }
-
+//Functions to set the drop icons in the data table.
 setActiveDropsImage=(active_drops)=>{
     let nrows = [];
     let remaning_days = 3 - active_drops;
@@ -136,6 +145,7 @@ setActiveDropsImage=(active_drops)=>{
     return(<div className='image_card'>{nrows}</div>)
 
 }
+//Function to set the plant size icons of leaves in the data table.
 setActivePlantSizeImage=(plant_size)=>{
     let nrows = [];
     let remaning_size = 3 - plant_size;
@@ -148,6 +158,7 @@ setActivePlantSizeImage=(plant_size)=>{
     return(<div className='image_card'>{nrows}</div>)
 
 }
+//Function to display the season icons on the data table below descriptions of plants.
 setSeasonImage=(season_type) =>{
 const season_name = season_type
 console.log('sesson: ', season_name)
@@ -162,7 +173,7 @@ switch(season_name) {
         return(<div className='image_card'><img src={springImg} alt='spring'/></div>)
   }
 }
-
+// Function for displaying all icons of plant size, water drop, seasons below plant description.
 rowPlantDescription=(rowData)=>{
 
     console.log('rowPlantDescription', rowData)
@@ -182,7 +193,7 @@ rowPlantDescription=(rowData)=>{
     </div>
     );
 }
-
+//Function to fetch the data from backend using post request once user choose any filter options and clicks on submit.
 onClickSearchButton =(e)=>{
     e.preventDefault();
 
@@ -236,6 +247,7 @@ onClickSearchButton =(e)=>{
     });
 
 }
+//Once user click on default setting button this function will clear all the data from the fields.
 onClickDefault = (e)=>{
     e.preventDefault();
     this.setState({
