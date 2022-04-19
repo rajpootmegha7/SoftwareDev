@@ -16,7 +16,7 @@ Description : Planner class component is taking the state of selected plants fro
 add the planner on the grid square boxes of fixed size. User can also save their grid and update their grid. 
 */
 
-export default class Planner extends Component {
+export default class planner extends Component {
 
     constructor(props) {
         super(props)
