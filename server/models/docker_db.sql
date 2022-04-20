@@ -217,7 +217,7 @@ ALTER TABLE IF EXISTS plant_care.location
     OWNER to plant_care;
 
 ------------------------------------------
-INSERT INTO plant_care.user VALUES (1, 'test', '8773934448', '123456', 'what is your first school name?', 'pass', 'user', 'test@email.com');
+INSERT INTO plant_care.user VALUES (20, 'test', '8773934448', '123456', 'what is your first school name?', 'pass', 'user', 'test@email.com');
 
 INSERT INTO plant_care.plant_type VALUES (1, 'Herb');
 INSERT INTO plant_care.plant_type VALUES (2, 'Shrub');
